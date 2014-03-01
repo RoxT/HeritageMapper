@@ -25,6 +25,7 @@
         android:layout_alignLeft="@+id/textView1"
         android:layout_alignParentTop="true"
         android:layout_marginTop="69dp"
-        android:text="Button" />
+        android:text="MAPS!!"
+        android:onClick="startMapTestActivity" />
 
 </RelativeLayout>
