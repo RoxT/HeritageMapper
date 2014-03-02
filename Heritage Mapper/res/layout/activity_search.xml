@@ -27,26 +27,70 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height= "wrap_content"
+=======
+        android:layout_height="wrap_content"
+>>>>>>> ea4e47309923a8c8eab84e1ad29c60209f11cd27
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/linearLayout1"
-
         android:orientation="vertical" >
         
     <TextView
-        
         android:id="@+id/search_result_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 		android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
         android:text="@string/search_result_1" />
+<<<<<<< HEAD
     <TextView
         
         android:id="@+id/search_result_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
+=======
+    
+    <TextView
+        android:id="@+id/search_result_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/search_result_1" />
+
+    
+    <TextView 
+        android:id="@+id/search_result_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/search_result_1" />
+    
+    <TextView
+        android:id="@+id/search_result_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/search_result_1" />
+    
+    <TextView
+        android:id="@+id/search_result_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/search_result_1" />
+ 
+    <TextView
+        android:id="@+id/search_result_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_marginLeft="30dp"
+>>>>>>> ea4e47309923a8c8eab84e1ad29c60209f11cd27
         android:layout_marginTop="20dp"
         android:text="@string/search_result_1" />
     </LinearLayout>
