@@ -39,14 +39,7 @@ public class SearchActivity extends android.support.v4.app.FragmentActivity {
     	myPois = new ArrayList<ParsedPointOfInterest>();
     	// Get entered text
     	EditText editText = (EditText) findViewById(R.id.edit_message);
-<<<<<<< HEAD
 
-   
-    	setContentView(R.layout.activity_search);
-	    // Create the text view
-
-=======
->>>>>>> upstream/master
     	String message = editText.getText().toString();
     	
     	// Get results
@@ -112,13 +105,7 @@ public class SearchActivity extends android.support.v4.app.FragmentActivity {
     		TextView textView = (TextView) findViewById(R.id.search_result_6);
     	    textView.setText("");
     	}
-<<<<<<< HEAD
 
-
-    	
-
-=======
->>>>>>> upstream/master
     }
     
     public void onResultClick1(View view) {
