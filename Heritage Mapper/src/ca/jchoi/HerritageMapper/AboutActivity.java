@@ -4,7 +4,8 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 
-public class AboutActivity extends Activity {
+public class AboutActivity extends
+android.support.v4.app.FragmentActivity  {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
