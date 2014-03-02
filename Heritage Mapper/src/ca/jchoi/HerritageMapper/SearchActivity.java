@@ -62,7 +62,8 @@ public class SearchActivity extends android.support.v4.app.FragmentActivity {
     		if (poi.getProvince().toLowerCase(Locale.getDefault()).contains(message.toLowerCase()) ||
     				poi.getName().toLowerCase(Locale.getDefault()).contains(message.toLowerCase()) ||
     				poi.getDesignation().toLowerCase(Locale.getDefault()).contains(message.toLowerCase()) ||
-    				poi.getStreet().toLowerCase(Locale.getDefault()).contains(message.toLowerCase())) {
+    				poi.getStreet().toLowerCase(Locale.getDefault()).contains(message.toLowerCase()) ||
+    				poi.getNameFrench().toLowerCase(Locale.getDefault()).contains(message.toLowerCase())) {
     			myPois.add(poi.getName());
     		}
     	}
