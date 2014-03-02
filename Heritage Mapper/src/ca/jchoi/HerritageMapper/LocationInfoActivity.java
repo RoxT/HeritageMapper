@@ -22,10 +22,12 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 @SuppressLint("NewApi")
+
 public class LocationInfoActivity extends
 		android.support.v4.app.FragmentActivity {
 	
-	private List<ParsedPointOfInterest> pois;
+	public static final String EXTRA_MESSAGE = "ca.jchoi.HerritageMapper.MESSAGE";
+	private List<ParsedPointOfInterest> pois; 
 	private List<ParsedPointOfInterest> visitedPois;
 	private List<ParsedPointOfInterest> wishPois;
 	private GoogleMap myMap;

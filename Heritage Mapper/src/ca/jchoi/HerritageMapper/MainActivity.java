@@ -29,6 +29,8 @@ public class MainActivity extends FragmentActivity {
 	private GoogleMap myMap;
 	private List<ParsedPointOfInterest> pois;
 
+	
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,6 +48,7 @@ public class MainActivity extends FragmentActivity {
 				setUpMap();
 			}
 		}
+		
 	}
 	
 	private void setUpMap() {
