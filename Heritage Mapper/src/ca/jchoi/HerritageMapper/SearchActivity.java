@@ -1,5 +1,8 @@
 package ca.jchoi.HerritageMapper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import ca.jchoi.HerritageMapper.R;
 import ca.jchoi.HerritageMapper.R.id;
 import ca.jchoi.HerritageMapper.R.layout;
@@ -19,24 +22,75 @@ import android.widget.TextView;
 
 public class SearchActivity extends android.support.v4.app.FragmentActivity {
 	
+	private List<ParsedPointOfInterest> pois;
+	private List<ParsedPointOfInterest> myPois;
 	public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	    setContentView(R.layout.activity_search);
+		pois = HeritageMapper.getInstance().getMasterList();
 	}
 	
     /** Called when the user clicks the Send button */
     public void sendMessage(View view) {
-        // Do something in response to button
- 
+    	myPois = new ArrayList<ParsedPointOfInterest>();
+    	// Get entered text
     	EditText editText = (EditText) findViewById(R.id.edit_message);
     	String message = editText.getText().toString();
+    	
+    	// Get results
+    	for (ParsedPointOfInterest poi : pois) {
+    		if (poi.getProvince().toLowerCase().contains(message.toLowerCase()) ||
+    				poi.getName().toLowerCase().contains(message.toLowerCase()) ||
+    				poi.getDesignation().toLowerCase().contains(message.toLowerCase()) ||
+    				poi.getStreet().toLowerCase().contains(message.toLowerCase())) {
+    			myPois.add(poi);
+    		}
+    	}
+    	int resultsLength = myPois.size();
+    	
+    	
+    	// Refresh view
     	setContentView(R.layout.activity_search);
-	    // Create the text view
-    	TextView textView = (TextView) findViewById(R.id.search_result_1);
-	    textView.setText(message);
+	    
+    	// Create the text views, up to 6
+    	if (resultsLength > 0) {
+    		TextView textView = (TextView) findViewById(R.id.search_result_1);
+    	    textView.setText(myPois.get(0).getName());
+    	} else {
+    		TextView textView = (TextView) findViewById(R.id.search_result_1);
+    	    textView.setText("No results found");
+    	}
+    	
+    	if (resultsLength > 1) {
+    		TextView textView = (TextView) findViewById(R.id.search_result_2);
+    	    textView.setText(myPois.get(1).getName());
+    	}
+    	
+    	if (resultsLength > 2) {
+    		TextView textView = (TextView) findViewById(R.id.search_result_3);
+    	    textView.setText(myPois.get(2).getName());
+    	}
+    	
+    	if (resultsLength > 3) {
+    		TextView textView = (TextView) findViewById(R.id.search_result_4);
+    	    textView.setText(myPois.get(3).getName());
+    	}
+    	
+    	if (resultsLength > 4) {
+    		TextView textView = (TextView) findViewById(R.id.search_result_5);
+    	    textView.setText(myPois.get(4).getName());
+    	}
+    	
+    	if (resultsLength > 5) {
+    		TextView textView = (TextView) findViewById(R.id.search_result_6);
+    	    textView.setText(myPois.get(5).getName());
+    	}
+
+
+    	
 
     }
 	@Override
