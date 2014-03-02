@@ -38,7 +38,9 @@
         android:layout_height="wrap_content"
 		android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
-        android:text="@string/search_result_1" />
+        android:text="@string/search_result_1"
+        android:onClick="onResultClick1" 
+        android:clickable="true"/>
     
     <TextView
         android:id="@+id/search_result_2"
@@ -46,7 +48,9 @@
         android:layout_height="wrap_content"
 		android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
-        android:text="@string/search_result_1" />
+        android:text="@string/search_result_1"
+        android:onClick="onResultClick2" 
+        android:clickable="true" />
 
     
     <TextView 
@@ -55,7 +59,9 @@
         android:layout_height="wrap_content"
 		android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
-        android:text="@string/search_result_1" />
+        android:text="@string/search_result_1"
+        android:onClick="onResultClick3" 
+        android:clickable="true" />
     
     <TextView
         android:id="@+id/search_result_4"
@@ -63,7 +69,9 @@
         android:layout_height="wrap_content"
 		android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
-        android:text="@string/search_result_1" />
+        android:text="@string/search_result_1"
+        android:onClick="onResultClick4" 
+        android:clickable="true" />
     
     <TextView
         android:id="@+id/search_result_5"
@@ -71,7 +79,9 @@
         android:layout_height="wrap_content"
 		android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
-        android:text="@string/search_result_1" />
+        android:text="@string/search_result_1" 
+        android:onClick="onResultClick5" 
+        android:clickable="true"/>
  
     <TextView
         android:id="@+id/search_result_6"
@@ -79,7 +89,9 @@
         android:layout_height="wrap_content"
 		android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
-        android:text="@string/search_result_1" />
+        android:text="@string/search_result_1" 
+        android:onClick="onResultClick6" 
+        android:clickable="true"/>
     </LinearLayout>
 
 </RelativeLayout>

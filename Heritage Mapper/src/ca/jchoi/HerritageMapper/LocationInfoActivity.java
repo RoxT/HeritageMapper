@@ -45,7 +45,7 @@ public class LocationInfoActivity extends android.support.v4.app.FragmentActivit
 		
 		// Get info from previous activity
 	    Intent intent = getIntent();
-	    int idNum = intent.getIntExtra(MainActivity.EXTRA_MESSAGE, 1);
+	    int idNum = intent.getIntExtra(SearchActivity.EXTRA_MESSAGE, 1);
 	    
 	    // Get Lists
 		pois = HeritageMapper.getInstance().getMasterList();

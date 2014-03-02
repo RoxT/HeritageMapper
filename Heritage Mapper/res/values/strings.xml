@@ -29,6 +29,6 @@
     
     <string name="gotoInfo">placeholder</string>
     
-    <string name="search_result_1">Search Result 1</string>
+    <string name="search_result_1"></string>
 
 </resources>

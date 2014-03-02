@@ -67,32 +67,87 @@ public class SearchActivity extends android.support.v4.app.FragmentActivity {
     	if (resultsLength > 1) {
     		TextView textView = (TextView) findViewById(R.id.search_result_2);
     	    textView.setText(myPois.get(1).getName());
+    	} else {
+    		TextView textView = (TextView) findViewById(R.id.search_result_2);
+    	    textView.setText("");
     	}
     	
     	if (resultsLength > 2) {
     		TextView textView = (TextView) findViewById(R.id.search_result_3);
     	    textView.setText(myPois.get(2).getName());
+    	} else {
+    		TextView textView = (TextView) findViewById(R.id.search_result_3);
+    	    textView.setText("");
     	}
     	
     	if (resultsLength > 3) {
     		TextView textView = (TextView) findViewById(R.id.search_result_4);
     	    textView.setText(myPois.get(3).getName());
+    	} else {
+    		TextView textView = (TextView) findViewById(R.id.search_result_4);
+    	    textView.setText("");
     	}
     	
     	if (resultsLength > 4) {
     		TextView textView = (TextView) findViewById(R.id.search_result_5);
     	    textView.setText(myPois.get(4).getName());
+    	} else {
+    		TextView textView = (TextView) findViewById(R.id.search_result_5);
+    	    textView.setText("");
     	}
     	
     	if (resultsLength > 5) {
     		TextView textView = (TextView) findViewById(R.id.search_result_6);
     	    textView.setText(myPois.get(5).getName());
+    	} else {
+    		TextView textView = (TextView) findViewById(R.id.search_result_6);
+    	    textView.setText("");
     	}
-
-
-    	
-
     }
+    
+    public void onResultClick1(View view) {
+    	Intent intent = new Intent(this, LocationInfoActivity.class);
+    	int idNum = myPois.get(0).getSiteID();
+    	intent.putExtra(EXTRA_MESSAGE, idNum);
+        startActivity(intent);
+    }
+    
+    public void onResultClick2(View view) {
+    	Intent intent = new Intent(this, LocationInfoActivity.class);
+    	int idNum = myPois.get(1).getSiteID();
+    	intent.putExtra(EXTRA_MESSAGE, idNum);
+        startActivity(intent);
+    }
+    
+    public void onResultClick3(View view) {
+    	Intent intent = new Intent(this, LocationInfoActivity.class);
+    	int idNum = myPois.get(2).getSiteID();
+    	intent.putExtra(EXTRA_MESSAGE, idNum);
+        startActivity(intent);
+    }
+    
+    public void onResultClick4(View view) {
+    	Intent intent = new Intent(this, LocationInfoActivity.class);
+    	int idNum = myPois.get(3).getSiteID();
+    	intent.putExtra(EXTRA_MESSAGE, idNum);
+        startActivity(intent);
+    }
+    
+    public void onResultClick5(View view) {
+    	Intent intent = new Intent(this, LocationInfoActivity.class);
+    	int idNum = myPois.get(4).getSiteID();
+    	intent.putExtra(EXTRA_MESSAGE, idNum);
+        startActivity(intent);
+    }
+    
+    public void onResultClick6(View view) {
+    	Intent intent = new Intent(this, LocationInfoActivity.class);
+    	int idNum = myPois.get(5).getSiteID();
+    	intent.putExtra(EXTRA_MESSAGE, idNum);
+        startActivity(intent);
+    }
+
+    
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
