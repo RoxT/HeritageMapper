@@ -96,8 +96,10 @@ public class LocationInfoActivity extends
 		tvProv.setText("Province: " + poi.getProvince());
 
 		TextView tvDesignation = (TextView) findViewById(R.id.tvDes);
-		tvDesignation
-				.setText("Reason for Designation: " + poi.getDesignation());
+		tvDesignation.setText("Reason for Designation: " + poi.getDesignation());
+		
+		TextView tvPlaque = (TextView) findViewById(R.id.tvPlaque);
+		tvPlaque.setText("Plaque location: " + poi.getPlaqueLocation());
 		
 		myMap = ((SupportMapFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.map)).getMap();
