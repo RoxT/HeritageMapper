@@ -1,6 +1,5 @@
 package ca.jchoi.HerritageMapper;
 
-
 import java.util.List;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
@@ -26,8 +25,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MainActivity extends FragmentActivity {
 
 	public static final String EXTRA_MESSAGE = "ca.jchoi.HerritageMapper";
-	
-
 
 	private GoogleMap myMap;
 	private List<ParsedPointOfInterest> pois;
@@ -36,8 +33,8 @@ public class MainActivity extends FragmentActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		pois = HeritageMapper.getInstance().getMasterList();
-
 		setContentView(R.layout.activity_main);
+		
 		setUpMapIfNeeded();
 	}
 
@@ -49,12 +46,16 @@ public class MainActivity extends FragmentActivity {
 				setUpMap();
 			}
 		}
-
+	}
+	
+	private void setUpMap() {
+		placePois(getLocation(this), 3);
 	}
 
-	private void setUpMap() {
+	private void placePois(LatLng location, int zoom) {
 
-		myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(getLocation(this), 5));
+		myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, zoom));
+		
 		for (ParsedPointOfInterest p : pois) {
 			MarkerOptions new_marker = new MarkerOptions();
 			if (p.getLatitude() != 0 && p.getLongitude() != 0) {
@@ -69,6 +70,10 @@ public class MainActivity extends FragmentActivity {
 			myMap.addMarker(new_marker);
 		}
 
+		// InfoWindowAdapter code adapted from
+		// http://wptrafficanalyzer.in/blog/
+		// customizing-infowindow-contents-in-google-map-android-api-v2-using-infowindowadapter/
+		
 		myMap.setInfoWindowAdapter(new InfoWindowAdapter() {
 
 			@Override
