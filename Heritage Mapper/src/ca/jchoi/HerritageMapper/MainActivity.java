@@ -31,7 +31,6 @@ public class MainActivity extends FragmentActivity {
 	private List<ParsedPointOfInterest> pois;
 
 	
-	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
