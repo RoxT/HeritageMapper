@@ -3,7 +3,7 @@ package ca.jchoi.HerritageMapper;
 
 import android.app.Activity;
 import android.content.Intent;
-<<<<<<< HEAD
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -11,10 +11,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
-=======
 import android.view.Menu;
 import android.view.View;
->>>>>>> 80471a144f2ec92de2534d1c2bd5582cf306314b
+
 
 public class MainActivity extends Activity {
 
@@ -26,16 +25,6 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu items for use in the action bar
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_activity_actions, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-    
-
     /** Called when the user clicks the Send button */
     public void sendMessage(View view) {
         // Do something in response to button
@@ -45,22 +34,53 @@ public class MainActivity extends Activity {
     	intent.putExtra(EXTRA_MESSAGE, message);
     	startActivity(intent);
     }
-    
-<<<<<<< HEAD
 
-    
-
- //   public void startMapTestActivity(View view) {
- //   	Intent intent = new Intent(this, MapTest.class);
- //   	startActivity(intent);
- //   }
-    
-
-=======
-    public void startMapTestActivity(View view) {
-    	Intent intent = new Intent(this, MapTest.class);
-    	startActivity(intent);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_activity_actions, menu);
+        return super.onCreateOptionsMenu(menu);
     }
     
->>>>>>> 80471a144f2ec92de2534d1c2bd5582cf306314b
+   
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.action_search:
+            	openSearch();
+                return true;
+            case R.id.action_wishlist:
+            	openWishlist();
+                return true;
+            case R.id.action_visited_list:
+            	openVisitedlist();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
+    private void openVisitedlist() {
+        Intent i = new Intent(MainActivity.this, VisitedListActivity.class);
+        startActivity(i);
+    }
+
+	private void openWishlist() {
+        Intent i = new Intent(MainActivity.this, WishlistActivity.class);
+        startActivity(i);
+		
+	}
+
+	private void openSearch() {
+		
+	}
+
+  //  public void startMapTestActivity(View view) {
+  //  	Intent intent = new Intent(this, MapTest.class);
+  //  	startActivity(intent);
+  //  }
+    
+
 }

@@ -39,12 +39,7 @@ public class DisplayMessageActivity extends Activity {
 
 	}
 	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.location_info, menu);
-		return true;
-	}
+
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -59,8 +54,35 @@ public class DisplayMessageActivity extends Activity {
 			//
 			NavUtils.navigateUpFromSameTask(this);
 			return true;
+		case R.id.action_search:
+        	openSearch();
+            return true;
+        case R.id.action_wishlist:
+        	openWishlist();
+            return true;
+        case R.id.action_visited_list:
+        	openVisitedlist();
+            return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}
+  
 
+
+    private void openVisitedlist() {
+        Intent i = new Intent(this, VisitedListActivity.class);
+        startActivity(i);
+    }
+
+	private void openWishlist() {
+        Intent i = new Intent(this, WishlistActivity.class);
+        startActivity(i);
+		
+	}
+
+	private void openSearch() {
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+		
+	}
 }

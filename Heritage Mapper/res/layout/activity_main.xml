@@ -14,7 +14,7 @@
         <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
+
         android:text="@string/button_send" 
         android:onClick="sendMessage" />
         
@@ -23,11 +23,4 @@
 </LinearLayout>
 
 
-=======
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="69dp"
-        android:text="MAPS!!"
-        android:onClick="startMapTestActivity" />
->>>>>>> 80471a144f2ec92de2534d1c2bd5582cf306314b
 

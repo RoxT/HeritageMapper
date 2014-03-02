@@ -7,14 +7,14 @@
     <string name="action_wishlist">Wishlist</string>
     <string name="action_visited_list">Visited List</string>
     <string name="action_location_info">Location Info</string>
-    <string name="edit_message">Enter a message</string>
-    <string name="button_send">Send</string>
+    <string name="edit_message">Enter Location</string>
+    <string name="button_send">Search</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_map_test">MapTest</string>
-    <string name="title_activity_display_message">My Message</string>
+    <string name="title_activity_display_message">Search Results</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_wishlist">WishlistActivity</string>
-    <string name="title_activity_visited_list">VisitedListActivity</string>
-    <string name="title_activity_location_info">LocationInfoActivity</string>
+    <string name="title_activity_wishlist">Wishlist</string>
+    <string name="title_activity_visited_list">Visited</string>
+    <string name="title_activity_location_info">Info</string>
 
 </resources>
