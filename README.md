@@ -61,4 +61,5 @@ Future Expansions
 
 Planned future features include:
 - The ability to filter sites by proximity to user
+- Routing between sites (finding the optimal path between sites the user is interested in)
 - Social connectivity, such as the ability to tag oneself at locations and view other user's tags, as well as leave comments at locations
