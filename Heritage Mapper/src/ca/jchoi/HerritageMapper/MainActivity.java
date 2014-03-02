@@ -50,21 +50,19 @@ public class MainActivity extends FragmentActivity {
 				setUpMap();
 			}
 		}
-		
 	}
 	
 	private void setUpMap() {
-		placePois(getLocation(this), 3);
-	}
-
-	private void placePois(LatLng location, int zoom) {
-
-		myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, zoom));
+		myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(getLocation(this), 3));
+		
+		// get wishlist and visited list
+		
+		wishPois = HeritageMapper.getInstance().getWishList();                 
+		beenPois = HeritageMapper.getInstance().getVisitedList();
 		
 		for (ParsedPointOfInterest p : pois) {
 			MarkerOptions new_marker = new MarkerOptions();
-			wishPois = HeritageMapper.getInstance().getWishList();
-			beenPois = HeritageMapper.getInstance().getVisitedList();
+			
 			if (p.getLatitude() != 0 && p.getLongitude() != 0) {
 				new_marker.position(new LatLng(p.getLatitude(), p
 						.getLongitude()));
@@ -88,9 +86,10 @@ public class MainActivity extends FragmentActivity {
 			myMap.addMarker(new_marker);
 		}
 
-		// InfoWindowAdapter code adapted from
-		// http://wptrafficanalyzer.in/blog/
-		// customizing-infowindow-contents-in-google-map-android-api-v2-using-infowindowadapter/
+		/*
+		 *  InfoWindowAdapter code adapted from http://wptrafficanalyzer.in/blog/
+		 *  customizing-infowindow-contents-in-google-map-android-api-v2-using-infowindowadapter/
+		 */ 
 		
 		myMap.setInfoWindowAdapter(new InfoWindowAdapter() {
 
@@ -120,13 +119,10 @@ public class MainActivity extends FragmentActivity {
 				poiDescription.setText(description);
 
 				return v;
-
 			}
 		});
-
 	}
 	
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu items for use in the action bar
