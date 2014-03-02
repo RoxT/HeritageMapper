@@ -6,4 +6,5 @@ import android.view.MenuItem;
 
 public abstract class Activity {
 
+	public final static int RESULT_OK = -1;
 }
