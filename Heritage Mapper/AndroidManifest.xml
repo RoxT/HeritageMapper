@@ -45,12 +45,17 @@
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
+<<<<<<< HEAD
             android:value="@string/maps_api_key" />
 
         <activity
             android:name="ca.jchoi.HerritageMapper.MapTest"
             android:label="@string/title_activity_map_test" >
         </activity>
+=======
+            android:value="AIzaSyDEd8Tw7TdzNG0dsL7jq1g0TenaNPy2o7Q" />
+       
+>>>>>>> 22055d7cbb821774aeb59c8533a0a554b5677a7f
 
         <meta-data
             android:name="com.google.android.gms.version"
