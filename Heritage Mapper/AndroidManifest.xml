@@ -57,8 +57,6 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:background= "#FF9900"
-            android:textColor= "#FFFFFF"
             android:name = "ca.jchoi.HerritageMapper.WishlistActivity"
             android:label="@string/title_activity_wishlist"
             android:parentActivityName = "ca.jchoi.HerritageMapper.MainActivity" >
@@ -68,8 +66,6 @@
         </activity>
         
         <activity
-            android:background= "#666666"
-            android:textColor= "#FFFFFF"
             android:name="ca.jchoi.HerritageMapper.VisitedListActivity"
             android:label="@string/title_activity_visited_list"
             android:parentActivityName = "ca.jchoi.HerritageMapper.MainActivity" >
