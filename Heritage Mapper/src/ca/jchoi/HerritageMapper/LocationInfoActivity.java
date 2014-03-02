@@ -1,5 +1,7 @@
 package ca.jchoi.HerritageMapper;
 
+import java.util.List;
+
 import ca.jchoi.HerritageMapper.R;
 import ca.jchoi.HerritageMapper.R.id;
 import ca.jchoi.HerritageMapper.R.layout;
@@ -15,16 +17,20 @@ import android.widget.TextView;
 
 @SuppressLint("NewApi")
 public class LocationInfoActivity extends android.support.v4.app.FragmentActivity {
-	
+	private List<ParsedPointOfInterest> pois;
 	TextView tvName;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		pois = HeritageMapper.getInstance().getMasterList();
+		ParsedPointOfInterest poi = pois.get(3);
+		
+		
 		setContentView(R.layout.activity_location_info);
 		
 		TextView tvName = (TextView) findViewById(R.id.tvName);
-		tvName.setText("Location Name");
+		tvName.setText(poi.getName());
 		
 		TextView tvStreet = (TextView) findViewById(R.id.tvStreet);
 		tvStreet.setText("Street Name");
