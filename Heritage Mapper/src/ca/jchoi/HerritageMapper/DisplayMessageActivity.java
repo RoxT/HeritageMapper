@@ -1,5 +1,7 @@
 package ca.jchoi.HerritageMapper;
 
+import ca.jchoi.HerritageMapper.R;
+import ca.jchoi.HerritageMapper.R.id;
 import android.os.Build;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
@@ -19,7 +21,7 @@ public class DisplayMessageActivity extends Activity {
 
 	    // Get the message from the intent
 	    Intent intent = getIntent();
-	    String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+	    String message = intent.getStringExtra(SearchActivity.EXTRA_MESSAGE);
 
 	    // Create the text view
 	    TextView textView = new TextView(this);

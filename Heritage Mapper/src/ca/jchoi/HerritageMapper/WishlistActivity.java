@@ -1,5 +1,9 @@
 package ca.jchoi.HerritageMapper;
 
+import ca.jchoi.HerritageMapper.R;
+import ca.jchoi.HerritageMapper.R.id;
+import ca.jchoi.HerritageMapper.R.layout;
+import ca.jchoi.HerritageMapper.R.menu;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -66,7 +70,7 @@ public class WishlistActivity extends Activity {
 	}
 
 	private void openSearch() {
-        Intent i = new Intent(this, MainActivity.class);
+		Intent i = new Intent(this, SearchActivity.class);
         startActivity(i);
 		
 	}

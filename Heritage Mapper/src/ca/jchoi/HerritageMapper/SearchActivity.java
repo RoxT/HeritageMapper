@@ -10,24 +10,37 @@ import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
-public class VisitedListActivity extends Activity {
-
+public class SearchActivity extends Activity {
+	
+	public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_visited_list);
+		setContentView(R.layout.activity_seach);
 	}
-
+    /** Called when the user clicks the Send button */
+    public void sendMessage(View view) {
+        // Do something in response to button
+    	Intent intent = new Intent(this, DisplayMessageActivity.class);
+    	EditText editText = (EditText) findViewById(R.id.edit_message);
+    	String message = editText.getText().toString();
+    	intent.putExtra(EXTRA_MESSAGE, message);
+    	startActivity(intent);
+    }
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.visited_list, menu);
+		getMenuInflater().inflate(R.menu.seach, menu);
 		return true;
 	}
 	private void setupActionBar() {
 
 		getActionBar().setDisplayHomeAsUpEnabled(true);
+
 	}
 	
 
@@ -58,16 +71,20 @@ public class VisitedListActivity extends Activity {
 	}
   
 
+
     private void openVisitedlist() {
+        Intent i = new Intent(this, VisitedListActivity.class);
+        startActivity(i);
     }
 
 	private void openWishlist() {
         Intent i = new Intent(this, WishlistActivity.class);
         startActivity(i);
+		
 	}
 
 	private void openSearch() {
-		Intent i = new Intent(this, SearchActivity.class);
-        startActivity(i);	
+
+		
 	}
 }

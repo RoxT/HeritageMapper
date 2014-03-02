@@ -30,15 +30,15 @@ public class HeritageMapper extends Application {
 			CSVReader csvReader = new CSVReader(reader);
 			String columns[];
 			while ((columns = csvReader.readNext()) != null) {
-				PointOfInterest poi = PointOfInterest.create(columns);
-				masterList.add(poi);
+//				PointOfInterest poi = PointOfInterest.create(columns);
+	//			masterList.add(poi);
 			}
 			// Writing master list of point of interest objects out as a CSV file
 			FileOutputStream output = openFileOutput("masterlist.csv", MODE_APPEND); // may have to revisit mode_append b/c there should be a MODE_REPLACE so Append will have duplicate files
 			OutputStreamWriter writer = new OutputStreamWriter(output);
 			CSVWriter csvWriter = new CSVWriter(writer);
 			for (PointOfInterest poi : masterList) {
-				columns = poi.getColumns();
+//				columns = poi.getColumns();
 				csvWriter.writeNext(columns);
 			}
 			// Read the master list CSV file back in and print it out THIS IS FOR TESTING ONLY!!!

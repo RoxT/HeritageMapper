@@ -12,9 +12,5 @@
           android:title="@string/action_wishlist"
           android:showAsAction="ifRoom" />
     
-    <!-- Visited list, appear as action button -->
-    <item android:id="@+id/action_visited_list"
-		   android:text="@string/action_visited_list"
-          android:title="@string/action_visited_list"
-          android:showAsAction="never" />
+
 </menu>

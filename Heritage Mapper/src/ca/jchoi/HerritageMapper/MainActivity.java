@@ -1,7 +1,12 @@
 package ca.jchoi.HerritageMapper;
 
 
+import ca.jchoi.HerritageMapper.R;
+import ca.jchoi.HerritageMapper.R.id;
+import ca.jchoi.HerritageMapper.R.layout;
+import ca.jchoi.HerritageMapper.R.menu;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 
 import android.os.Bundle;
@@ -13,11 +18,12 @@ import android.widget.EditText;
 
 import android.view.Menu;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 
 public class MainActivity extends Activity {
 
-	public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+
 	 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,15 +31,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
     }
 
-    /** Called when the user clicks the Send button */
-    public void sendMessage(View view) {
-        // Do something in response to button
-    	Intent intent = new Intent(this, DisplayMessageActivity.class);
-    	EditText editText = (EditText) findViewById(R.id.edit_message);
-    	String message = editText.getText().toString();
-    	intent.putExtra(EXTRA_MESSAGE, message);
-    	startActivity(intent);
-    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -74,7 +72,8 @@ public class MainActivity extends Activity {
 	}
 
 	private void openSearch() {
-		
+        Intent i = new Intent(this, SearchActivity.class);
+        startActivity(i);
 	}
 
   //  public void startMapTestActivity(View view) {
