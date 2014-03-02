@@ -15,8 +15,6 @@ import android.widget.EditText;
 
 public class WishlistActivity extends android.support.v4.app.FragmentActivity {
 
-	public static final String EXTRA_MESSAGE = "ca.jchoi.HerritageMapper";
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -30,13 +28,6 @@ public class WishlistActivity extends android.support.v4.app.FragmentActivity {
 		return true;
 	}
 
-    public void gotoInfo(View view) {
-        // Do something in response to button. Place Holder.
-    	Intent intent = new Intent(this, LocationInfoActivity.class);
-    	int siteID = 2;
-    	intent.putExtra(EXTRA_MESSAGE, siteID);
-    	startActivity(intent);
-    }
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
