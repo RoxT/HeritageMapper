@@ -18,7 +18,7 @@
     <string name="title_activity_location_info">Info</string>
     <string name="title_activity_seach">SeachActivity</string>
     
-        <string name="location_info_name">Location Name</string>
+    <string name="location_info_name">Location Name</string>
     <string name="location_info_address">Location Address</string>
     <string name="location_info_city">Location City</string>
     <string name="location_info_province">Location Province</string>
