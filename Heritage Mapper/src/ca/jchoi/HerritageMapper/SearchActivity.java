@@ -32,12 +32,11 @@ public class SearchActivity extends android.support.v4.app.FragmentActivity {
         // Do something in response to button
  
     	EditText editText = (EditText) findViewById(R.id.edit_message);
-    	String message = editText.getText().toString();
+    	String results = editText.getText().toString();
     	setContentView(R.layout.activity_search);
 	    // Create the text view
     	TextView textView = (TextView) findViewById(R.id.search_result_1);
-	    textView.setText(message);
-
+	    textView.setText(results);
     }
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
