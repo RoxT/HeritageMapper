@@ -27,7 +27,11 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <uses-library android:name="com.google.android.maps" />
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 80471a144f2ec92de2534d1c2bd5582cf306314b
         <activity
             android:name="ca.jchoi.HerritageMapper.MainActivity"
             android:label="@string/app_name" >
@@ -45,7 +49,9 @@
         <activity
             android:name="ca.jchoi.HerritageMapper.MapTest"
             android:label="@string/title_activity_map_test" >
+
         </activity>
+<<<<<<< HEAD
         <activity
             android:name="ca.jchoi.HerritageMapper.DisplayMessageActivity"
             android:label="@string/title_activity_display_message"
@@ -71,6 +77,12 @@
             android:name="ca.jchoi.HerritageMapper.LocationInfoActivity"
             android:label="@string/title_activity_location_info" >
         </activity>
+=======
+        
+       <meta-data
+    	android:name="com.google.android.gms.version"
+    	android:value="@integer/google_play_services_version" />
+>>>>>>> 80471a144f2ec92de2534d1c2bd5582cf306314b
     </application>
 
 </manifest>

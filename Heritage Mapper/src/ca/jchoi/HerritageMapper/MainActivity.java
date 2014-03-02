@@ -3,6 +3,7 @@ package ca.jchoi.HerritageMapper;
 
 import android.app.Activity;
 import android.content.Intent;
+<<<<<<< HEAD
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -10,6 +11,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+=======
+import android.view.Menu;
+import android.view.View;
+>>>>>>> 80471a144f2ec92de2534d1c2bd5582cf306314b
 
 public class MainActivity extends Activity {
 
@@ -41,6 +46,7 @@ public class MainActivity extends Activity {
     	startActivity(intent);
     }
     
+<<<<<<< HEAD
 
     
 
@@ -50,4 +56,11 @@ public class MainActivity extends Activity {
  //   }
     
 
+=======
+    public void startMapTestActivity(View view) {
+    	Intent intent = new Intent(this, MapTest.class);
+    	startActivity(intent);
+    }
+    
+>>>>>>> 80471a144f2ec92de2534d1c2bd5582cf306314b
 }
