@@ -5,18 +5,26 @@ import ca.jchoi.HerritageMapper.R.id;
 import ca.jchoi.HerritageMapper.R.layout;
 import ca.jchoi.HerritageMapper.R.menu;
 import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
+@SuppressLint("NewApi")
 public class LocationInfoActivity extends android.support.v4.app.FragmentActivity {
-
+	
+	TextView tvName;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_location_info);
+		
+		TextView tvName = (TextView) findViewById(R.id.tvName);
+		tvName.setText("Name goes Here");
 	}
 
 	@Override
@@ -28,6 +36,7 @@ public class LocationInfoActivity extends android.support.v4.app.FragmentActivit
 	/**
 	 * Set up the {@link android.app.ActionBar}.
 	 */
+	@SuppressLint("NewApi")
 	private void setupActionBar() {
 
 		getActionBar().setDisplayHomeAsUpEnabled(true);

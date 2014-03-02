@@ -17,5 +17,16 @@
     <string name="title_activity_visited_list">Visited</string>
     <string name="title_activity_location_info">Info</string>
     <string name="title_activity_seach">SeachActivity</string>
+    
+        <string name="location_info_name">Location Name</string>
+    <string name="location_info_address">Location Address</string>
+    <string name="location_info_city">Location City</string>
+    <string name="location_info_province">Location Province</string>
+    <string name="location_info_designation">Location Designation</string>
+    
+    <string name="location_checkbox_visited">Visited</string>
+    <string name="location_checkbox_wishlist">Wishlist</string>
+    
+        <string name="gotoInfo">placeholder</string>
 
 </resources>
