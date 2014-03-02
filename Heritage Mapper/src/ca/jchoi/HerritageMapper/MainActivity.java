@@ -1,5 +1,7 @@
 package ca.jchoi.HerritageMapper;
 
+import java.text.Normalizer;
+import java.text.Normalizer.Form;
 import java.util.ArrayList;
 import java.util.List;
 import android.support.v4.app.FragmentActivity;
@@ -7,6 +9,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -20,6 +24,7 @@ import android.os.Bundle;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
@@ -29,18 +34,13 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MainActivity extends FragmentActivity {
 
-	private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
-
-
 	public static final String EXTRA_MESSAGE = "ca.jchoi.HerritageMapper";
 	
 
+
 	private GoogleMap myMap;
 	private List<ParsedPointOfInterest> pois;
-	
 
-
-	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -58,29 +58,60 @@ public class MainActivity extends FragmentActivity {
 				setUpMap();
 			}
 		}
+
 	}
 
 	private void setUpMap() {
 
-		myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(62.7125, -109.1647), 3));
-
-		
-		
-
+		myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(getLocation(this), 5));
 		for (ParsedPointOfInterest p : pois) {
 			MarkerOptions new_marker = new MarkerOptions();
 			if (p.getLatitude() != 0 && p.getLongitude() != 0) {
-				new_marker.position(new LatLng(p.getLatitude(), p.getLongitude())); }
-			else continue;
-			
-			new_marker.title(p.getName());
-			new_marker.snippet(p.getDesignation());
+				new_marker.position(new LatLng(p.getLatitude(), p
+						.getLongitude()));
+			} else
+				continue;
+
+			new_marker.title(p.getName() + "\n" + p.getNameFrench());
+			new_marker.snippet(p.getDesignation() + "\n" + p.getDesignationFrench());
 
 			myMap.addMarker(new_marker);
-
 		}
 
+		myMap.setInfoWindowAdapter(new InfoWindowAdapter() {
+
+			@Override
+			public View getInfoWindow(Marker marker) {
+				return null;
+			}
+
+			@Override
+			public View getInfoContents(Marker arg0) {
+
+				// Getting view from the layout file info_window_layout
+				View v = getLayoutInflater().inflate(
+						R.layout.info_window_layout, null);
+
+				String title = arg0.getTitle();
+				
+				
+				
+				String description = arg0.getSnippet();
+
+				TextView poiTitle = (TextView) v.findViewById(R.id.poiTitle);
+				TextView poiDescription = (TextView) v
+						.findViewById(R.id.poiDescription);
+
+				poiTitle.setText(title);
+				poiDescription.setText(description);
+
+				return v;
+
+			}
+		});
+
 	}
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -123,29 +154,23 @@ public class MainActivity extends FragmentActivity {
 		startActivity(i);
 	}
 
-	public LatLng getLocation(Context ctx) 
-	{
-	    LocationManager lm = (LocationManager) ctx.getSystemService(Context.LOCATION_SERVICE);
-	    List<String> providers = lm.getProviders(true);
+	public LatLng getLocation(Context ctx) {
+		LocationManager lm = (LocationManager) ctx
+				.getSystemService(Context.LOCATION_SERVICE);
+		List<String> providers = lm.getProviders(true);
 
-	    /*
-	     * Loop over the array backwards, and if you get an accurate location,
-	     * then break out the loop
-	     */
-	    Location l = null;
+		/*
+		 * Loop over the array backwards, and if you get an accurate location,
+		 * then break out the loop
+		 */
+		Location l = null;
 
-	    for (int i = providers.size() - 1; i >= 0; i--) 
-	    {
-	        l = lm.getLastKnownLocation(providers.get(i));
-	        if (l != null)
-	            break;
-	    }
-	    return new LatLng(l.getLatitude(),l.getLongitude());
+		for (int i = providers.size() - 1; i >= 0; i--) {
+			l = lm.getLastKnownLocation(providers.get(i));
+			if (l != null)
+				break;
+		}
+		return new LatLng(l.getLatitude(), l.getLongitude());
 	}
-	
-
-
-
-
 
 }
