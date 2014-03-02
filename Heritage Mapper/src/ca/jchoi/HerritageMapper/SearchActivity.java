@@ -5,20 +5,13 @@ import java.util.List;
 import java.util.Locale;
 
 import ca.jchoi.HerritageMapper.R;
-import ca.jchoi.HerritageMapper.R.id;
-import ca.jchoi.HerritageMapper.R.layout;
-import ca.jchoi.HerritageMapper.R.menu;
 import android.os.Bundle;
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class SearchActivity extends android.support.v4.app.FragmentActivity {

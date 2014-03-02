@@ -19,7 +19,7 @@ import ca.jchoi.HerritageMapper.ParsedPointOfInterest;
 
 public class HeritageMapper extends Application {
 	
-	private static final String TAG = "HeritageMapper";
+
 	private static HeritageMapper sInstance;
 	
 	private List<ParsedPointOfInterest> masterList = new ArrayList<ParsedPointOfInterest>();; 

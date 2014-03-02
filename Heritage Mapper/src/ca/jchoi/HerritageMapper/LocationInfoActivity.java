@@ -4,12 +4,10 @@ import java.io.IOException;
 import java.util.List;
 
 import ca.jchoi.HerritageMapper.R;
-import ca.jchoi.HerritageMapper.R.id;
-import ca.jchoi.HerritageMapper.R.layout;
-import ca.jchoi.HerritageMapper.R.menu;
+
 import android.os.Bundle;
 import android.annotation.SuppressLint;
-import android.app.Activity;
+
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
