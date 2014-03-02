@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
 public class WishlistActivity extends android.support.v4.app.FragmentActivity {
 
@@ -25,12 +27,12 @@ public class WishlistActivity extends android.support.v4.app.FragmentActivity {
 		getMenuInflater().inflate(R.menu.wishlist, menu);
 		return true;
 	}
-	private void setupActionBar() {
 
-		getActionBar().setDisplayHomeAsUpEnabled(true);
-
-	}
-	
+    public void gotoInfo(View view) {
+        // Do something in response to button
+    	Intent intent = new Intent(this, LocationInfoActivity.class);
+    	startActivity(intent);
+    }
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
