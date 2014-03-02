@@ -12,8 +12,8 @@
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/checkBox1"
-        android:layout_below="@+id/checkBox1"
+        android:layout_alignLeft="@+id/cbVisited"
+        android:layout_below="@+id/cbVisited"
         android:layout_marginTop="24dp"
         android:text="@string/location_info_name" />
 
@@ -36,7 +36,7 @@
         android:text="@string/location_info_city" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tvDes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/tvTown"
@@ -48,28 +48,28 @@
         android:id="@+id/tvProv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_below="@+id/textView4"
+        android:layout_alignLeft="@+id/tvDes"
+        android:layout_below="@+id/tvDes"
         android:layout_marginTop="24dp"
         android:text="@string/location_info_designation" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/cbVisted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/tvName"
         android:layout_marginLeft="44dp"
-        android:layout_toRightOf="@+id/checkBox1"
-        android:text="@string/location_checkbox_visited" />
+        android:layout_toRightOf="@+id/cbWish"
+        android:text="@string/location_checkbox_visited" 
+        android:onClick="clickVisited"/>
 
     <CheckBox
-        android:id="@+id/checkBox1"
+        android:id="@+id/cbWish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/location_checkbox_wishlist" />
+        android:layout_alignRight="@+id/tvDes"
+        android:layout_alignTop="@+id/tvName"
+        android:text="@string/location_checkbox_wishlist" 
+        android:onClick="clickWish"/>
 
 </RelativeLayout>
