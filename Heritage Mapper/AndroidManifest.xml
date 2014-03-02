@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="ca.jchoi.HerritageMapper"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ca.jchoi.HerritageMapper"
     android:versionCode="1"
-    android:versionName="1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    android:versionName="1.0" >
 
     <uses-sdk
         android:minSdkVersion="11"
         android:targetSdkVersion="19" />
 
     <!-- The following are all for Maps -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-	<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
-	<!-- The following two permissions are not required to use
-     Google Maps Android API v2, but are recommended. -->
-	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <!--
+     The following two permissions are not required to use
+     Google Maps Android API v2, but are recommended.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
@@ -27,8 +31,6 @@
         android:icon="@drawable/ic_launcher2"
         android:label="@string/app_name"
         android:theme="@style/MyTheme" >
- 
-        
         <uses-library android:name="com.google.android.maps" />
 
         <activity
@@ -49,34 +51,31 @@
             android:name="ca.jchoi.HerritageMapper.MapTest"
             android:label="@string/title_activity_map_test" >
         </activity>
-       
 
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name = "ca.jchoi.HerritageMapper.WishlistActivity"
+            android:name="ca.jchoi.HerritageMapper.WishlistActivity"
             android:label="@string/title_activity_wishlist"
-            android:parentActivityName = "ca.jchoi.HerritageMapper.MainActivity" >
+            android:parentActivityName="ca.jchoi.HerritageMapper.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ca.jchoi.HerritageMapper.MainActivity" />
         </activity>
-        
         <activity
             android:name="ca.jchoi.HerritageMapper.VisitedListActivity"
             android:label="@string/title_activity_visited_list"
-            android:parentActivityName = "ca.jchoi.HerritageMapper.MainActivity" >
+            android:parentActivityName="ca.jchoi.HerritageMapper.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ca.jchoi.HerritageMapper.MainActivity" />
         </activity>
-
         <activity
-   			android:name= "ca.jchoi.HerritageMapper.LocationInfoActivity"
-            android:label= "@string/title_activity_location_info"
-            android:parentActivityName = "ca.jchoi.HerritageMapper.MainActivity" >
+            android:name="ca.jchoi.HerritageMapper.LocationInfoActivity"
+            android:label="@string/title_activity_location_info"
+            android:parentActivityName="ca.jchoi.HerritageMapper.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ca.jchoi.HerritageMapper.MainActivity" />
@@ -88,11 +87,15 @@
 
         <activity
             android:name="ca.jchoi.HerritageMapper.SearchActivity"
-            android:label="@string/title_activity_seach" 
-            android:parentActivityName = "ca.jchoi.HerritageMapper.MainActivity" >
+            android:label="@string/title_activity_seach"
+            android:parentActivityName="ca.jchoi.HerritageMapper.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ca.jchoi.HerritageMapper.MainActivity" />
+        </activity>
+        <activity
+            android:name="ca.jchoi.HerritageMapper.AboutActivity"
+            android:label="@string/title_activity_about" >
         </activity>
     </application>
 
