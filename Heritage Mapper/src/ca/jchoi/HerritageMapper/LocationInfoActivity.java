@@ -6,6 +6,7 @@ import java.util.List;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -107,7 +108,7 @@ public class LocationInfoActivity extends
 				.findFragmentById(R.id.map)).getMap();
 		
 		myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(poi.getLatitude(), poi.getLongitude()), 5));
-		myMap.addMarker(new MarkerOptions().position(new LatLng(poi.getLatitude(), poi.getLongitude())));
+		myMap.addMarker(new MarkerOptions().position(new LatLng(poi.getLatitude(), poi.getLongitude()))).setIcon(BitmapDescriptorFactory.fromResource(R.drawable.red_marker));
 		
 		setVisitedBox();
 		setWishBox();
