@@ -27,6 +27,8 @@
     <string name="location_checkbox_visited">Visited</string>
     <string name="location_checkbox_wishlist">Wishlist</string>
     
-        <string name="gotoInfo">placeholder</string>
+    <string name="gotoInfo">placeholder</string>
+    
+    <string name="search_result_1">Search Result 1</string>
 
 </resources>

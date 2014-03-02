@@ -5,31 +5,39 @@ import ca.jchoi.HerritageMapper.R.id;
 import ca.jchoi.HerritageMapper.R.layout;
 import ca.jchoi.HerritageMapper.R.menu;
 import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class SearchActivity extends android.support.v4.app.FragmentActivity {
 	
 	public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_search);
+	    setContentView(R.layout.activity_search);
 	}
+	
     /** Called when the user clicks the Send button */
     public void sendMessage(View view) {
         // Do something in response to button
-    	Intent intent = new Intent(this, DisplayMessageActivity.class);
+ 
     	EditText editText = (EditText) findViewById(R.id.edit_message);
     	String message = editText.getText().toString();
-    	intent.putExtra(EXTRA_MESSAGE, message);
-    	startActivity(intent);
+    	setContentView(R.layout.activity_search);
+	    // Create the text view
+    	TextView textView = (TextView) findViewById(R.id.search_result_1);
+	    textView.setText(message);
+
     }
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
