@@ -77,6 +77,9 @@ public class WishlistActivity extends android.support.v4.app.FragmentActivity {
         case R.id.action_visited_list:
         	openVisitedlist();
             return true;
+		case R.id.action_about:
+			openAbout();
+			return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -90,6 +93,9 @@ public class WishlistActivity extends android.support.v4.app.FragmentActivity {
 		Intent i = new Intent(this, SearchActivity.class);
         startActivity(i);
 	}
-	
+	private void openAbout() {
+		Intent i = new Intent(this, AboutActivity.class);
+		startActivity(i);
+	}
 
 }

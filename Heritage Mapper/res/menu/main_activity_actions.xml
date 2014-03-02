@@ -18,4 +18,11 @@
 		  android:icon="@drawable/ic_visited"
           android:title="@string/action_visited_list"
           android:showAsAction="ifRoom" />
+    
+    <!-- About, appear as overflow text -->
+    <item android:id="@+id/action_about"
+		  android:text="@string/action_about"
+          android:title="@string/action_about"
+          android:showAsAction="never" />
+    
 </menu>

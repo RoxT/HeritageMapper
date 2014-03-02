@@ -202,6 +202,9 @@ android.support.v4.app.FragmentActivity {
 		case R.id.action_visited_list:
 			openVisitedlist();
 			return true;
+		case R.id.action_about:
+			openAbout();
+			return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -213,6 +216,11 @@ android.support.v4.app.FragmentActivity {
 
 	private void openWishlist() {
 		Intent i = new Intent(this, WishlistActivity.class);
+		startActivity(i);
+	}
+	
+	private void openAbout() {
+		Intent i = new Intent(this, AboutActivity.class);
 		startActivity(i);
 	}
 
