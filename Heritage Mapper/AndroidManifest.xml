@@ -9,7 +9,6 @@
         android:targetSdkVersion="18" />
 
     <!-- The following are all for Maps -->
-    <uses-permission android:name="ca.jchoi.HerritageMapper.permission.MAPS_RECEIVE" />
     <uses-permission android:name="android.permission.INTERNET"/>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -23,9 +22,9 @@
         android:required="true" />
 
     <application
-        android:name="ca.jchoi.HeritageMapper.HeritageMapper"
+        android:name="ca.jchoi.HerritageMapper.HeritageMapper"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/ic_action_map"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         
