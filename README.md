@@ -45,7 +45,7 @@ The Heritage Mapper is powered by Park's Department Federal Heritage Destination
 Overview
 ==============
 
-Parses CSV dataset and constructs all historical locations in Point Of Interest objects. The MainActivity.java class consists of an interface with Google Maps which produces a Marker at all of the locations of Points of Interests. Users can search for locations, and indicate locations as being on their wishlist or as having been there. Marker colours are adjusted according to these three categories. 
+HeritageMapper parses all historical locations in the dataset as Point Of Interest objects. The MainActivity class consists of an interface with Google Maps which places a Marker at all of the locations of the historical POIs in Canadian. Users are able to search for locations, and indicate locations as being on their wishlist or as having been there. Marker colours are adjusted according to these three categories. 
 
 Features
 ==============
@@ -55,7 +55,7 @@ Features
 Packages
 ==============
 1. au.com.bytecode.opencsv / contains open source csv parser
-2. ca.jchoi.HerritageMapper / contains main application classes 
+2. ca.jchoi.HerritageMapper / contains main application classes
 
 Todo: Future Expansions
 ==============
