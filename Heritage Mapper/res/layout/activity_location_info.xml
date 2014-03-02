@@ -13,6 +13,16 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
+         <CheckBox
+            android:id="@+id/cbWish"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:onClick="clickWish"
+            android:textStyle="bold"
+            android:text="@string/location_checkbox_wishlist" />
+         
         <CheckBox
             android:id="@+id/cbVisted"
             android:layout_width="0dp"
@@ -22,66 +32,65 @@
             android:onClick="clickVisited"
             android:textStyle="bold"
             android:text="@string/location_checkbox_visited" />
-
-        <CheckBox
-            android:id="@+id/cbWish"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:onClick="clickWish"
-            android:textStyle="bold"
-            android:text="@string/location_checkbox_wishlist" />
+       
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:orientation="vertical" >
 
         <TextView
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="12dp"
             android:text="@string/location_info_name" />
+        
+		<TextView
+            android:id="@+id/tvFrenchName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/location_info_french_name" />
 
         <TextView
             android:id="@+id/tvStreet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="12dp"
             android:text="@string/location_info_address" />
 
         <TextView
             android:id="@+id/tvTown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="12dp"
             android:text="@string/location_info_city" />
 
         <TextView
             android:id="@+id/tvDes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="12dp"
             android:text="@string/location_info_province" />
 
         <TextView
             android:id="@+id/tvProv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="12dp"
             android:text="@string/location_info_designation" />
         
         <TextView
             android:id="@+id/tvPlaque"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/location_info_designation" />
+            android:layout_marginTop="12dp"
+            android:text="@string/location_info_plaque" />
+
     </LinearLayout>
 
     <fragment
