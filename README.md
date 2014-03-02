@@ -49,19 +49,20 @@ HeritageMapper parses all historical locations in the dataset as Point Of Intere
 
 Features
 ==============
-1.French and English translations of location information
-2. Differential coloured markers for three separate categories: Default, places users have visited, and places users want to visit
+1. French and English translations of location information
+2. Differentially coloured Markers for three separate categories: default, places users have visited, and places users want to visit
+3. Persistent wish list and visited list
 
 Packages
 ==============
 1. au.com.bytecode.opencsv / contains open source csv parser
 2. ca.jchoi.HerritageMapper / contains main application classes
 
-Todo: Future Expansions
+Future Expansions
 ==============
 
-Planned future features include:
-- The ability to reach the location information pages from the info window popups on the map interface
-- The ability to filter sites by proximity to user
-- Routing between sites (finding the optimal path between sites the user is interested in)
-- Social connectivity, such as the ability to tag oneself at locations and view other user's tags, as well as leave comments at locations
+Potential future features include:
+1. The ability to reach the location information pages from the info window popups on the map interface
+2. The ability to filter sites by proximity to user
+3. Routing between sites (finding the optimal path between sites the user is interested in)
+4. Social connectivity, such as the ability to tag oneself at locations and view other user's tags, as well as leave comments at locations
