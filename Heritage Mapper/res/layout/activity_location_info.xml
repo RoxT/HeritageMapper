@@ -9,7 +9,7 @@
     tools:context=".LocationInfoActivity" >
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/checkBox1"
@@ -18,20 +18,20 @@
         android:text="@string/location_info_name" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvStreet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/tvName"
+        android:layout_below="@+id/tvName"
         android:layout_marginTop="24dp"
         android:text="@string/location_info_address" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tvTown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_below="@+id/textView3"
+        android:layout_alignLeft="@+id/tvStreet"
+        android:layout_below="@+id/tvStreet"
         android:layout_marginTop="24dp"
         android:text="@string/location_info_city" />
 
@@ -39,13 +39,13 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView6"
-        android:layout_below="@+id/textView6"
+        android:layout_alignLeft="@+id/tvTown"
+        android:layout_below="@+id/tvTown"
         android:layout_marginTop="24dp"
         android:text="@string/location_info_province" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tvProv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView4"
@@ -57,7 +57,7 @@
         android:id="@+id/checkBox2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView2"
+        android:layout_above="@+id/tvName"
         android:layout_marginLeft="44dp"
         android:layout_toRightOf="@+id/checkBox1"
         android:text="@string/location_checkbox_visited" />

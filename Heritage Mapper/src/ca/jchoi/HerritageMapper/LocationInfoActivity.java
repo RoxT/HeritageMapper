@@ -24,7 +24,16 @@ public class LocationInfoActivity extends android.support.v4.app.FragmentActivit
 		setContentView(R.layout.activity_location_info);
 		
 		TextView tvName = (TextView) findViewById(R.id.tvName);
-		tvName.setText("Name goes Here");
+		tvName.setText("Location Name");
+		
+		TextView tvStreet = (TextView) findViewById(R.id.tvStreet);
+		tvStreet.setText("Street Name");
+		
+		TextView tvTown = (TextView) findViewById(R.id.tvTown);
+		tvTown.setText("Town Name");
+		
+		TextView tvProv = (TextView) findViewById(R.id.tvProv);
+		tvProv.setText("Prov Name");
 	}
 
 	@Override
