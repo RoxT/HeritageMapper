@@ -86,7 +86,7 @@ public class LocationInfoActivity extends
 
 		TextView tvStreet = (TextView) findViewById(R.id.tvStreet);
 		tvStreet.setText("");
-		if (!poi.getStreet().equals(poi.getName()))
+		if (!poi.getStreet().equals(poi.getName()) && !poi.getStreet().equals("<<Null>>"))
 			tvStreet.setText("Street: " + poi.getStreet());
 
 		TextView tvTown = (TextView) findViewById(R.id.tvTown);
