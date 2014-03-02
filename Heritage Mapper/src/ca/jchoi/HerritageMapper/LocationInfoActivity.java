@@ -6,6 +6,7 @@ import java.util.List;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -82,11 +83,34 @@ android.support.v4.app.FragmentActivity {
 				poiWish.setChecked(true);
 		}
 
+		// Update all textviews
+		TextView tvName = (TextView) findViewById(R.id.tvName);
+		tvName.setText("Name: " + poi.getName());
+
+		TextView tvStreet = (TextView) findViewById(R.id.tvStreet);
+		tvStreet.setText("");
+		if (!poi.getStreet().equals(poi.getName()) && !poi.getStreet().equals("<Null>"))
+			tvStreet.setText("Street: " + poi.getStreet());
+
+		TextView tvTown = (TextView) findViewById(R.id.tvTown);
+		tvTown.setText("Town: " + poi.getTown());
+
+		TextView tvProv = (TextView) findViewById(R.id.tvProv);
+		tvProv.setText("Province: " + poi.getProvince());
+
+		TextView tvDesignation = (TextView) findViewById(R.id.tvDes);
+		tvDesignation.setText("Reason for Designation: " + poi.getDesignation());
+		
+		TextView tvPlaque = (TextView) findViewById(R.id.tvPlaque);
+		tvPlaque.setText("");
+		if (!poi.getPlaqueLocation().equals("<Null>"))
+				tvPlaque.setText("Plaque location: " + poi.getPlaqueLocation());
+		
 		myMap = ((SupportMapFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.map)).getMap();
 
 		myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(poi.getLatitude(), poi.getLongitude()), 5));
-		myMap.addMarker(new MarkerOptions().position(new LatLng(poi.getLatitude(), poi.getLongitude())));
+		myMap.addMarker(new MarkerOptions().position(new LatLng(poi.getLatitude(), poi.getLongitude()))).setIcon(BitmapDescriptorFactory.fromResource(R.drawable.red_marker));
 	}
 
 

@@ -26,14 +26,9 @@
         <item name="android:titleTextStyle">@style/myTheme.ActionBar.Text</item>
     </style>
         <style name="myTheme.ActionBar.Text" parent="@android:style/TextAppearance">
+        <item name="android:textStyle">bold</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
-    <style name="Theme.Transparent" parent="android:Theme">
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowIsFloating">true</item>
-        <item name="android:backgroundDimEnabled">false</item>
-      </style>
+   
     
 </resources>

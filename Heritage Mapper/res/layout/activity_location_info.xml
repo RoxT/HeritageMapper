@@ -20,6 +20,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:onClick="clickVisited"
+            android:textStyle="bold"
             android:text="@string/location_checkbox_visited" />
 
         <CheckBox
@@ -29,6 +30,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:onClick="clickWish"
+            android:textStyle="bold"
             android:text="@string/location_checkbox_wishlist" />
     </LinearLayout>
 
