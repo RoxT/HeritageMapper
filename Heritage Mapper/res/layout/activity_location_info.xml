@@ -8,12 +8,40 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".LocationInfoActivity" >
 
+ <LinearLayout
+    android:layout_width="match_parent"
+     android:layout_height="wrap_content" 
+     android:orientation="horizontal" >
+
+    <CheckBox
+        android:id="@+id/cbVisted"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:onClick="clickVisited"
+        android:text="@string/location_checkbox_visited" />
+
+    <CheckBox
+        android:id="@+id/cbWish"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:onClick="clickWish"
+        android:text="@string/location_checkbox_wishlist" />
+
+    </LinearLayout>
+    <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content" 
+     android:layout_marginTop="36dp"
+     android:orientation="vertical" >
     <TextView
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/cbVisited"
-        android:layout_below="@+id/cbVisited"
+
         android:layout_marginTop="24dp"
         android:text="@string/location_info_name" />
 
@@ -21,8 +49,6 @@
         android:id="@+id/tvStreet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tvName"
-        android:layout_below="@+id/tvName"
         android:layout_marginTop="24dp"
         android:text="@string/location_info_address" />
 
@@ -30,8 +56,7 @@
         android:id="@+id/tvTown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tvStreet"
-        android:layout_below="@+id/tvStreet"
+
         android:layout_marginTop="24dp"
         android:text="@string/location_info_city" />
 
@@ -39,8 +64,7 @@
         android:id="@+id/tvDes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tvTown"
-        android:layout_below="@+id/tvTown"
+
         android:layout_marginTop="24dp"
         android:text="@string/location_info_province" />
 
@@ -48,28 +72,10 @@
         android:id="@+id/tvProv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tvDes"
-        android:layout_below="@+id/tvDes"
+
         android:layout_marginTop="24dp"
         android:text="@string/location_info_designation" />
 
-    <CheckBox
-        android:id="@+id/cbVisted"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/tvName"
-        android:layout_marginLeft="44dp"
-        android:layout_toRightOf="@+id/cbWish"
-        android:text="@string/location_checkbox_visited" 
-        android:onClick="clickVisited"/>
-
-    <CheckBox
-        android:id="@+id/cbWish"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/tvDes"
-        android:layout_alignTop="@+id/tvName"
-        android:text="@string/location_checkbox_wishlist" 
-        android:onClick="clickWish"/>
+ </LinearLayout>
 
 </RelativeLayout>

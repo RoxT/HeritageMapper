@@ -91,9 +91,7 @@ public class LocationInfoActivity extends android.support.v4.app.FragmentActivit
 		tvDesignation.setText("Reason for Designation: " + poi.getDesignation());
 		
 		setVisitedBox();
-
-		CheckBox chWish = (CheckBox) findViewById(R.id.cbWish);
-		chWish.setChecked(isPoiWish);
+		setWishBox();
 
 		
 
