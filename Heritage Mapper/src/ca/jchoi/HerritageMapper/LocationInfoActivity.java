@@ -24,8 +24,8 @@ import android.widget.TextView;
 @SuppressLint("NewApi")
 
 public class LocationInfoActivity extends
-		android.support.v4.app.FragmentActivity {
-	
+android.support.v4.app.FragmentActivity {
+
 	public static final String EXTRA_MESSAGE = "ca.jchoi.HerritageMapper.MESSAGE";
 	private List<ParsedPointOfInterest> pois; 
 	private List<ParsedPointOfInterest> visitedPois;
@@ -42,14 +42,17 @@ public class LocationInfoActivity extends
 
 	// This item
 	ParsedPointOfInterest poi;
-	
+
 	// To know for the check boxes
-	boolean isPoiVisited;
-	boolean isPoiWish;
+	CheckBox poiVisited;
+	CheckBox poiWish;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		// Set Layout
+		setContentView(R.layout.activity_location_info);
 
 		// Get info from previous activity
 		Intent intent = getIntent();
@@ -60,8 +63,10 @@ public class LocationInfoActivity extends
 		visitedPois = HeritageMapper.getInstance().getVisitedList();
 		wishPois = HeritageMapper.getInstance().getWishList();
 
+		poiVisited = (CheckBox) findViewById(R.id.cbVisted);
+		poiWish = (CheckBox) findViewById(R.id.cbWish);
+
 		// Return the specific poi
-		ParsedPointOfInterest poi = null;
 		for (ParsedPointOfInterest poii : pois) {
 			if (poii.getSiteID() == idNum)
 				poi = poii;
@@ -70,110 +75,35 @@ public class LocationInfoActivity extends
 		// Set list booleans
 		for (ParsedPointOfInterest vpoi : visitedPois) {
 			if (poi.getSiteID() == vpoi.getSiteID())
-				isPoiVisited = true;
+				poiVisited.setChecked(true);
 		}
 		for (ParsedPointOfInterest wpoi : wishPois) {
 			if (poi.getSiteID() == wpoi.getSiteID())
-				isPoiWish = true;
+				poiWish.setChecked(true);
 		}
 
-		// Set Layout
-		setContentView(R.layout.activity_location_info);
-
-		// Update all textviews
-		TextView tvName = (TextView) findViewById(R.id.tvName);
-		tvName.setText("Name: " + poi.getName());
-
-		TextView tvStreet = (TextView) findViewById(R.id.tvStreet);
-		tvStreet.setText("");
-		if (!poi.getStreet().equals(poi.getName()) && !poi.getStreet().equals("<<Null>>"))
-			tvStreet.setText("Street: " + poi.getStreet());
-
-		TextView tvTown = (TextView) findViewById(R.id.tvTown);
-		tvTown.setText("Town: " + poi.getTown());
-
-		TextView tvProv = (TextView) findViewById(R.id.tvProv);
-		tvProv.setText("Province: " + poi.getProvince());
-
-		TextView tvDesignation = (TextView) findViewById(R.id.tvDes);
-		tvDesignation.setText("Reason for Designation: " + poi.getDesignation());
-		
-		TextView tvPlaque = (TextView) findViewById(R.id.tvPlaque);
-		tvPlaque.setText("Plaque location: " + poi.getPlaqueLocation());
-		
 		myMap = ((SupportMapFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.map)).getMap();
-		
+
 		myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(poi.getLatitude(), poi.getLongitude()), 5));
 		myMap.addMarker(new MarkerOptions().position(new LatLng(poi.getLatitude(), poi.getLongitude())));
-		
-		setVisitedBox();
-		setWishBox();
-
 	}
-	
-	
+
+
 	public void clickVisited(View view) {
-		if (!isPoiVisited) {
-			try {
-				HeritageMapper.getInstance().saveCSVFile("visitedlist.csv",
-						visitedPois);
-
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			isPoiVisited = true;
-			setVisitedBox();
-
+		if (poiVisited.isChecked()) {
+			visitedPois.add(poi);
 		} else {
-			List<ParsedPointOfInterest> newList = visitedPois;
-			newList.remove(poi);
-			try {
-				HeritageMapper.getInstance().saveCSVFile("visitedlist.csv",
-						visitedPois);
-			} catch (IOException e) {
-
-				e.printStackTrace();
-			}
-			isPoiVisited = false;
-			setVisitedBox();
+			visitedPois.remove(poi);
 		}
 	}
 
 	public void clickWish(View view) {
-		if (!isPoiWish) {
-			try {
-				HeritageMapper.getInstance().saveCSVFile("wishlist.csv",
-						wishPois);
-
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			isPoiWish = true;
-			setWishBox();
-
+		if (poiWish.isChecked()) {
+			wishPois.add(poi);
 		} else {
-			List<ParsedPointOfInterest> newList = wishPois;
-			newList.remove(poi);
-			try {
-				HeritageMapper.getInstance().saveCSVFile("wishlist.csv",
-						wishPois);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			isPoiWish = false;
-			setWishBox();
+			wishPois.remove(poi);
 		}
-	}
-
-	public void setVisitedBox() {
-		CheckBox chVisited = (CheckBox) findViewById(R.id.cbVisted);
-		chVisited.setChecked(isPoiVisited);
-	}
-
-	public void setWishBox() {
-		CheckBox chWish = (CheckBox) findViewById(R.id.cbWish);
-		chWish.setChecked(isPoiWish);
 	}
 
 	@Override
@@ -188,11 +118,29 @@ public class LocationInfoActivity extends
 	 */
 	@SuppressLint("NewApi")
 	private void setupActionBar() {
-
 		getActionBar().setDisplayHomeAsUpEnabled(true);
-
 	}
 
+	@Override
+	protected void onPause() {
+		super.onPause();
+		try {
+			HeritageMapper.getInstance().saveCSVFile("wishlist.csv", wishPois);
+			HeritageMapper.getInstance().saveCSVFile("visitedlist.csv", visitedPois);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		wishPois = HeritageMapper.getInstance().loadCSVFile("wishlist.csv");
+		visitedPois = HeritageMapper.getInstance().loadCSVFile("visitedlist.csv");
+		visitedPois = HeritageMapper.getInstance().getVisitedList();
+		wishPois = HeritageMapper.getInstance().getWishList();
+	}
+	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -227,12 +175,10 @@ public class LocationInfoActivity extends
 	private void openWishlist() {
 		Intent i = new Intent(this, WishlistActivity.class);
 		startActivity(i);
-
 	}
 
 	private void openSearch() {
 		Intent i = new Intent(this, MainActivity.class);
 		startActivity(i);
 	}
-	
 }

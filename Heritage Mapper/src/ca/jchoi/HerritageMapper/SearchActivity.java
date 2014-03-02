@@ -2,145 +2,70 @@ package ca.jchoi.HerritageMapper;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
-import ca.jchoi.HerritageMapper.R;
-import android.os.Bundle;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ListView;
 
 public class SearchActivity extends android.support.v4.app.FragmentActivity {
+
+	private ListView listView;
 	
 	private List<ParsedPointOfInterest> pois;
-	private List<ParsedPointOfInterest> myPois;
+	private List<String> myPois = new ArrayList<String>();
 	public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	    setContentView(R.layout.activity_search);
+	    listView = (ListView) findViewById(R.id.list);
+	    ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, myPois);
+	    listView.setAdapter(adapter);
+	    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+	    	@Override
+	    	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+	    		String name = (String) parent.getItemAtPosition(position);
+	    		for (ParsedPointOfInterest poi : pois) {
+	    			if (poi.getName().equals(name)) {
+	    				openLocationInfoActivity(poi);
+	    			}
+	    		}
+	    	}
+		});
 		pois = HeritageMapper.getInstance().getMasterList();
 	}
 	
+	private void openLocationInfoActivity(ParsedPointOfInterest poi) {
+		Intent intent = new Intent(this, LocationInfoActivity.class);
+		int idNum = poi.getSiteID();
+		intent.putExtra(EXTRA_MESSAGE, idNum);
+		startActivity(intent);
+	}
+	
     /** Called when the user clicks the Send button */
-    public void sendMessage(View view) {
-    	myPois = new ArrayList<ParsedPointOfInterest>();
+	public void sendMessage(View view) {
+    	myPois.clear();
     	// Get entered text
     	EditText editText = (EditText) findViewById(R.id.edit_message);
-
     	String message = editText.getText().toString();
-    	
-    	// Get results
     	for (ParsedPointOfInterest poi : pois) {
-    		if (poi.getProvince().toLowerCase(Locale.getDefault()).contains(message.toLowerCase()) ||
-    				poi.getName().toLowerCase(Locale.getDefault()).contains(message.toLowerCase()) ||
-    				poi.getDesignation().toLowerCase(Locale.getDefault()).contains(message.toLowerCase()) ||
-    				poi.getStreet().toLowerCase(Locale.getDefault()).contains(message.toLowerCase())) {
-    			myPois.add(poi);
+    		if (poi.getProvince().toLowerCase().contains(message.toLowerCase()) ||
+    				poi.getName().toLowerCase().contains(message.toLowerCase()) ||
+    				poi.getDesignation().toLowerCase().contains(message.toLowerCase()) ||
+    				poi.getStreet().toLowerCase().contains(message.toLowerCase())) {
+    			myPois.add(poi.getName());
     		}
     	}
-    	int resultsLength = myPois.size();
-    	
-    	
-    	// Refresh view
-    	setContentView(R.layout.activity_search);
-	    
-    	// Create the text views, up to 6
-    	if (resultsLength > 0) {
-    		TextView textView = (TextView) findViewById(R.id.search_result_1);
-    	    textView.setText(myPois.get(0).getName());
-    	} else {
-    		TextView textView = (TextView) findViewById(R.id.search_result_1);
-    	    textView.setText("No results found");
-    	}
-    	
-    	if (resultsLength > 1) {
-    		TextView textView = (TextView) findViewById(R.id.search_result_2);
-    	    textView.setText(myPois.get(1).getName());
-    	} else {
-    		TextView textView = (TextView) findViewById(R.id.search_result_2);
-    	    textView.setText("");
-    	}
-    	
-    	if (resultsLength > 2) {
-    		TextView textView = (TextView) findViewById(R.id.search_result_3);
-    	    textView.setText(myPois.get(2).getName());
-    	} else {
-    		TextView textView = (TextView) findViewById(R.id.search_result_3);
-    	    textView.setText("");
-    	}
-    	
-    	if (resultsLength > 3) {
-    		TextView textView = (TextView) findViewById(R.id.search_result_4);
-    	    textView.setText(myPois.get(3).getName());
-    	} else {
-    		TextView textView = (TextView) findViewById(R.id.search_result_4);
-    	    textView.setText("");
-    	}
-    	
-    	if (resultsLength > 4) {
-    		TextView textView = (TextView) findViewById(R.id.search_result_5);
-    	    textView.setText(myPois.get(4).getName());
-    	} else {
-    		TextView textView = (TextView) findViewById(R.id.search_result_5);
-    	    textView.setText("");
-    	}
-    	
-    	if (resultsLength > 5) {
-    		TextView textView = (TextView) findViewById(R.id.search_result_6);
-    	    textView.setText(myPois.get(5).getName());
-    	} else {
-    		TextView textView = (TextView) findViewById(R.id.search_result_6);
-    	    textView.setText("");
-    	}
-
-    }
-    
-    public void onResultClick1(View view) {
-    	Intent intent = new Intent(this, LocationInfoActivity.class);
-    	int idNum = myPois.get(0).getSiteID();
-    	intent.putExtra(EXTRA_MESSAGE, idNum);
-        startActivity(intent);
-    }
-    
-    public void onResultClick2(View view) {
-    	Intent intent = new Intent(this, LocationInfoActivity.class);
-    	int idNum = myPois.get(1).getSiteID();
-    	intent.putExtra(EXTRA_MESSAGE, idNum);
-        startActivity(intent);
-    }
-    
-    public void onResultClick3(View view) {
-    	Intent intent = new Intent(this, LocationInfoActivity.class);
-    	int idNum = myPois.get(2).getSiteID();
-    	intent.putExtra(EXTRA_MESSAGE, idNum);
-        startActivity(intent);
-    }
-    
-    public void onResultClick4(View view) {
-    	Intent intent = new Intent(this, LocationInfoActivity.class);
-    	int idNum = myPois.get(3).getSiteID();
-    	intent.putExtra(EXTRA_MESSAGE, idNum);
-        startActivity(intent);
-    }
-    
-    public void onResultClick5(View view) {
-    	Intent intent = new Intent(this, LocationInfoActivity.class);
-    	int idNum = myPois.get(4).getSiteID();
-    	intent.putExtra(EXTRA_MESSAGE, idNum);
-        startActivity(intent);
-    }
-    
-    public void onResultClick6(View view) {
-    	Intent intent = new Intent(this, LocationInfoActivity.class);
-    	int idNum = myPois.get(5).getSiteID();
-    	intent.putExtra(EXTRA_MESSAGE, idNum);
-        startActivity(intent);
+    	((BaseAdapter) listView.getAdapter()).notifyDataSetChanged();
     }
 
     
@@ -178,8 +103,6 @@ public class SearchActivity extends android.support.v4.app.FragmentActivity {
 		return super.onOptionsItemSelected(item);
 	}
   
-
-
     private void openVisitedlist() {
         Intent i = new Intent(this, VisitedListActivity.class);
         startActivity(i);
@@ -188,11 +111,9 @@ public class SearchActivity extends android.support.v4.app.FragmentActivity {
 	private void openWishlist() {
         Intent i = new Intent(this, WishlistActivity.class);
         startActivity(i);
-		
 	}
 
 	private void openSearch() {
-
-		
+		//TODO What does this do?
 	}
 }
