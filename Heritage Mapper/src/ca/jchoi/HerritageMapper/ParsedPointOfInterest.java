@@ -22,7 +22,6 @@ public class ParsedPointOfInterest {
 	private String plaqueLocation;
 	private String town;
 	private String province;
-	private String comments;
 	
 	
 	private String designation;
@@ -32,9 +31,10 @@ public class ParsedPointOfInterest {
 	private boolean wantToVisit;
 	private boolean Visited;
 	
-	public ParsedPointOfInterest() {
+	public ParsedPointOfInterest() { // Getters and setters for fields in CSV file 
 	}
 	
+	// Creates a string array of points of interest 
 	public static ParsedPointOfInterest create(String[] data) {
 		ParsedPointOfInterest poi = new ParsedPointOfInterest();
 		poi.setSiteID(getIntegerValue(data[SITE_ID]));
@@ -48,7 +48,6 @@ public class ParsedPointOfInterest {
 		poi.setDesignationFrench(getStringValue(data[REASON_FOR_DESIGNATION_FRENCH]));
 		poi.setLatitude(getDoubleValue(data[LATITUDE]));
 		poi.setLongitude(getDoubleValue(data[LONGITUDE]));
-		poi.setComments("");
 		return poi;
 	}
 	
@@ -93,13 +92,6 @@ public class ParsedPointOfInterest {
 		return columns;
 	}
 
-	public String getComment() {
-		return comments;
-	}
-
-	public void setComments(String comment) {
-		comments = comment;
-	}
 	
 	public int getSiteID() {
 		return SiteID;
@@ -207,23 +199,5 @@ public class ParsedPointOfInterest {
 
 	public void setVisited(boolean visited) {
 		Visited = visited;
-	}
-	
-//	@Override
-//	public String toString() {
-//		String[] columns = getColumns();
-//		StringBuilder builder = new StringBuilder();
-//		for (String value : columns) {
-//			builder.append(value);
-//			builder.append(", ");
-//		}
-//		builder.setLength(builder.length() - 1);
-//		return builder.toString();
-//	}
-	
-	@Override
-	public String toString() {
-		String[] columns = getColumns();
-		return "Latitude = " + columns[LATITUDE];
 	}
 }

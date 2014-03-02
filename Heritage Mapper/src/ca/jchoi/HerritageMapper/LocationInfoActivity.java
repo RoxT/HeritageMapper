@@ -35,6 +35,7 @@ android.support.v4.app.FragmentActivity {
 
 	// Create views
 	TextView tvName;
+	TextView tvNameFrench;
 	TextView tvStreet;
 	TextView tvTown;
 	TextView tvProv;
@@ -83,9 +84,12 @@ android.support.v4.app.FragmentActivity {
 				poiWish.setChecked(true);
 		}
 
-		// Update all textviews
+		// Update all text views
 		TextView tvName = (TextView) findViewById(R.id.tvName);
 		tvName.setText("Name: " + poi.getName());
+		
+		TextView tvNameFrench = (TextView) findViewById(R.id.tvFrenchName);
+		tvNameFrench.setText("Nom: " + poi.getNameFrench());
 
 		TextView tvStreet = (TextView) findViewById(R.id.tvStreet);
 		tvStreet.setText("");
@@ -157,6 +161,17 @@ android.support.v4.app.FragmentActivity {
 	}
 	
 	@Override
+	protected void onStop() {
+		super.onPause();
+		try {
+			HeritageMapper.getInstance().saveCSVFile("wishlist.csv", wishPois);
+			HeritageMapper.getInstance().saveCSVFile("visitedlist.csv", visitedPois);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	@Override
 	protected void onResume() {
 		super.onResume();
 		wishPois = HeritageMapper.getInstance().loadCSVFile("wishlist.csv");
@@ -202,7 +217,7 @@ android.support.v4.app.FragmentActivity {
 	}
 
 	private void openSearch() {
-		Intent i = new Intent(this, MainActivity.class);
+		Intent i = new Intent(this, SearchActivity.class);
 		startActivity(i);
 	}
 }

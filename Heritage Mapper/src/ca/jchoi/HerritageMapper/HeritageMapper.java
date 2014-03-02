@@ -19,7 +19,6 @@ import ca.jchoi.HerritageMapper.ParsedPointOfInterest;
 
 public class HeritageMapper extends Application {
 	
-
 	private static HeritageMapper sInstance;
 	
 	private List<ParsedPointOfInterest> masterList = new ArrayList<ParsedPointOfInterest>();; 
@@ -44,37 +43,53 @@ public class HeritageMapper extends Application {
 	
 	
 	@Override
-	public void onCreate() {
-				
+	public void onCreate() {	
 		sInstance = this;
-
 		try {
 			// Check if master list is already created
-			boolean fileExists = checkFileExists("masterlist.csv"); 
-
-			if (!fileExists) { 
-				// If master list doesn't exist then: 
+			boolean masterExists = checkFileExists("masterlist.csv"); 
+			if (!masterExists) { 
+				// If master list does not exist then parse and load original template 
 				masterList = loadTemplateFile("NHSC_LHNC_TB.csv");
-				
-				Collections.sort(getMasterList(), new NameComparator());  // and this line for search functionality
-
+				// This line is for faster search functionality
+				Collections.sort(getMasterList(), new NameComparator());  
 				// Write master list of point of interest objects out as a CSV file
 				saveCSVFile("masterlist.csv", masterList);
-
 			} else { 
-				// Read the master list CSV file back in and print it out 
+				// If master list does exist then read the master list CSV file back in and print it out 
 				masterList = loadCSVFile("masterlist.csv");
 			}
-		} catch (IOException e) {//input & output reading exception
+			// Check if wish list is already created
+			boolean wishExists = checkFileExists("wishlist.csv"); 
+			if (!wishExists) { 
+			} else { 
+				// If wish list does exist then read the wish list CSV file back in and print it out 
+				wishList = loadCSVFile("wishlist.csv");
+				// This line is for faster search functionality
+				Collections.sort(getWishList(), new NameComparator());
+			}
+			// Check if wish list is already created
+			boolean visitedExists = checkFileExists("visitedlist.csv"); 
+			if (!visitedExists) { 
+			} else { 
+				// If wish list does exist then read the wish list CSV file back in and print it out 
+				visitedList = loadCSVFile("visitedlist.csv");
+				// This line is for faster search functionality
+				Collections.sort(getVisitedList(), new NameComparator());
+			}
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
+	// HELPER FUNCTIONS FOR onCreate()
+	
+	// Check if master list is already created
 	public boolean checkFileExists(String listType) {
-		boolean fileExists = false; // assume that file doesn't exists so try to open file
+		boolean fileExists = false; 
 		try {
-			FileInputStream temp = openFileInput(listType); // open file correctly means that we have file
-			fileExists = true; // so set it to true
+			FileInputStream temp = openFileInput(listType);
+			fileExists = true;
 			temp.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -84,6 +99,7 @@ public class HeritageMapper extends Application {
 		return fileExists;
 	}
 	
+	// If master list does not exist then parse and load original template
 	public List<ParsedPointOfInterest> loadTemplateFile(String fileName) {
 		List<ParsedPointOfInterest> myList = new ArrayList<ParsedPointOfInterest>();
 		InputStream assetStream;
@@ -104,6 +120,7 @@ public class HeritageMapper extends Application {
 		return myList;
 	}
 	
+	// Write master list of point of interest objects out as a CSV file
 	public void saveCSVFile(String fileName, List<ParsedPointOfInterest> myList) throws IOException {
 		FileOutputStream output = openFileOutput(fileName, MODE_PRIVATE);
 		OutputStreamWriter writer = new OutputStreamWriter(output);
@@ -118,6 +135,7 @@ public class HeritageMapper extends Application {
 		csvWriter.close();
 	}
 	
+	// If master list does exist then read the master list CSV file back in and print it out
 	public List<ParsedPointOfInterest> loadCSVFile(String fileName) { 
 		List<ParsedPointOfInterest> myList = new ArrayList<ParsedPointOfInterest>();
 		FileInputStream input;
