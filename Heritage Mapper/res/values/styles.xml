@@ -23,6 +23,7 @@
 
     <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
         <item name="android:background">#FF6600</item>
+        <item name="android:textColor"> #FFFFFF</item>
     </style>
     
 </resources>
