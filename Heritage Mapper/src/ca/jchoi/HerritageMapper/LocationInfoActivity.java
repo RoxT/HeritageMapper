@@ -86,7 +86,7 @@ public class LocationInfoActivity extends
 
 		TextView tvStreet = (TextView) findViewById(R.id.tvStreet);
 		tvStreet.setText("");
-		if (!poi.getStreet().equals(poi.getName()) && !poi.getStreet().equals("<<Null>>"))
+		if (!poi.getStreet().equals(poi.getName()) && !poi.getStreet().equals("<Null>"))
 			tvStreet.setText("Street: " + poi.getStreet());
 
 		TextView tvTown = (TextView) findViewById(R.id.tvTown);
@@ -99,7 +99,9 @@ public class LocationInfoActivity extends
 		tvDesignation.setText("Reason for Designation: " + poi.getDesignation());
 		
 		TextView tvPlaque = (TextView) findViewById(R.id.tvPlaque);
-		tvPlaque.setText("Plaque location: " + poi.getPlaqueLocation());
+		tvPlaque.setText("");
+		if (!poi.getPlaqueLocation().equals("<Null>"))
+				tvPlaque.setText("Plaque location: " + poi.getPlaqueLocation());
 		
 		myMap = ((SupportMapFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.map)).getMap();
