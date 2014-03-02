@@ -18,6 +18,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -68,7 +69,7 @@ public class MainActivity extends FragmentActivity {
 				continue;
 
 			new_marker.title(p.getName() + "\n" + p.getNameFrench());
-			new_marker.snippet(p.getDesignation() + "\n" + p.getDesignationFrench());
+			new_marker.snippet(p.getDesignation() + "\n" + p.getDesignationFrench()).icon(BitmapDescriptorFactory.fromResource(R.drawable.red_marker));
 
 			myMap.addMarker(new_marker);
 		}
