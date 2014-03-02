@@ -96,4 +96,6 @@ public class WishlistActivity extends android.support.v4.app.FragmentActivity {
 		Intent i = new Intent(this, SearchActivity.class);
         startActivity(i);
 	}
+	
+
 }
