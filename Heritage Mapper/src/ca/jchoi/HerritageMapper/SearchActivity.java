@@ -2,6 +2,7 @@ package ca.jchoi.HerritageMapper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import ca.jchoi.HerritageMapper.R;
 import ca.jchoi.HerritageMapper.R.id;
@@ -38,21 +39,19 @@ public class SearchActivity extends android.support.v4.app.FragmentActivity {
     	myPois = new ArrayList<ParsedPointOfInterest>();
     	// Get entered text
     	EditText editText = (EditText) findViewById(R.id.edit_message);
-<<<<<<< HEAD
-    	String results = editText.getText().toString();
+
+   
     	setContentView(R.layout.activity_search);
 	    // Create the text view
-    	TextView textView = (TextView) findViewById(R.id.search_result_1);
-	    textView.setText(results);
-=======
+
     	String message = editText.getText().toString();
     	
     	// Get results
     	for (ParsedPointOfInterest poi : pois) {
-    		if (poi.getProvince().toLowerCase().contains(message.toLowerCase()) ||
-    				poi.getName().toLowerCase().contains(message.toLowerCase()) ||
-    				poi.getDesignation().toLowerCase().contains(message.toLowerCase()) ||
-    				poi.getStreet().toLowerCase().contains(message.toLowerCase())) {
+    		if (poi.getProvince().toLowerCase(Locale.getDefault()).contains(message.toLowerCase()) ||
+    				poi.getName().toLowerCase(Locale.getDefault()).contains(message.toLowerCase()) ||
+    				poi.getDesignation().toLowerCase(Locale.getDefault()).contains(message.toLowerCase()) ||
+    				poi.getStreet().toLowerCase(Locale.getDefault()).contains(message.toLowerCase())) {
     			myPois.add(poi);
     		}
     	}
@@ -99,7 +98,6 @@ public class SearchActivity extends android.support.v4.app.FragmentActivity {
 
     	
 
->>>>>>> ea4e47309923a8c8eab84e1ad29c60209f11cd27
     }
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

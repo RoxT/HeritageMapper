@@ -49,15 +49,7 @@
             android:name="ca.jchoi.HerritageMapper.MapTest"
             android:label="@string/title_activity_map_test" >
         </activity>
-        
-        <activity
-            android:name="ca.jchoi.HerritageMapper.DisplayMessageActivity"
-            android:label="@string/title_activity_display_message"
-            android:parentActivityName = "ca.jchoi.HerritageMapper.MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ca.jchoi.HerritageMapper.MainActivity" />
-        </activity>
+       
 
         <meta-data
             android:name="com.google.android.gms.version"
