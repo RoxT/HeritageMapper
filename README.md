@@ -26,7 +26,7 @@ Canadian Heritage Mapper
 
 Coded for the Canadian Open Data Experience 2014, Feb 28-March 2!
 
-The Heritage Mapper Android Application provides an opportunity for Canadians to discover more about our country by highlighting the location of historical sites designated by the Federal Park's Department. It allows users the ability to select locations they've already visited and those they wish to visit, so as to keep track of their federal historical site experiences. 
+The Heritage Mapper Android Application provides an opportunity for Canadians to discover more about our country by highlighting the location of historical sites designated by the Federal Park's Department. It allows users the ability to select locations they've already visited and those they wish to visit, so as to keep track of their federal historical sight-seeing experiences. 
 
 
 
