@@ -22,6 +22,7 @@ public class ParsedPointOfInterest {
 	private String plaqueLocation;
 	private String town;
 	private String province;
+	private String comments;
 	
 	
 	private String designation;
@@ -47,6 +48,7 @@ public class ParsedPointOfInterest {
 		poi.setDesignationFrench(getStringValue(data[REASON_FOR_DESIGNATION_FRENCH]));
 		poi.setLatitude(getDoubleValue(data[LATITUDE]));
 		poi.setLongitude(getDoubleValue(data[LONGITUDE]));
+		poi.setComments("");
 		return poi;
 	}
 	
@@ -89,6 +91,14 @@ public class ParsedPointOfInterest {
 		columns[LATITUDE] = String.valueOf(getLatitude());
 		columns[LONGITUDE] = String.valueOf(getLongitude());
 		return columns;
+	}
+
+	public String getComment() {
+		return comments;
+	}
+
+	public void setComments(String comment) {
+		comments = comment;
 	}
 	
 	public int getSiteID() {

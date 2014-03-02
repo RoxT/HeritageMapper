@@ -29,6 +29,8 @@ public class MainActivity extends FragmentActivity {
 
 	private GoogleMap myMap;
 	private List<ParsedPointOfInterest> pois;
+	private List<ParsedPointOfInterest> wishPois;
+	private List<ParsedPointOfInterest> beenPois;
 
 	
 	@Override
@@ -61,14 +63,27 @@ public class MainActivity extends FragmentActivity {
 		
 		for (ParsedPointOfInterest p : pois) {
 			MarkerOptions new_marker = new MarkerOptions();
+			wishPois = HeritageMapper.getInstance().getWishList();
+			beenPois = HeritageMapper.getInstance().getVisitedList();
 			if (p.getLatitude() != 0 && p.getLongitude() != 0) {
 				new_marker.position(new LatLng(p.getLatitude(), p
 						.getLongitude()));
 			} else
-				continue;
+				continue; 
+			
+			if (wishPois.contains(p)) {
+				new_marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.wishlist_marker));
+			}	
+			else if (beenPois.contains(p)) {
+				new_marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.visited_marker));
+			}
+			else
+				new_marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.red_marker));
+				 
+				
 
 			new_marker.title(p.getName() + "\n" + p.getNameFrench());
-			new_marker.snippet(p.getDesignation() + "\n" + p.getDesignationFrench()).icon(BitmapDescriptorFactory.fromResource(R.drawable.red_marker));
+			new_marker.snippet(p.getDesignation() + "\n" + p.getDesignationFrench());
 
 			myMap.addMarker(new_marker);
 		}
