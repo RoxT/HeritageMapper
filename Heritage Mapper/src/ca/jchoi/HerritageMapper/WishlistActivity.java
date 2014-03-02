@@ -34,12 +34,6 @@ public class WishlistActivity extends android.support.v4.app.FragmentActivity {
 	    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 	    	@Override
 	    	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//	    		String name = (String) parent.getItemAtPosition(position);
-//	    		for (ParsedPointOfInterest poi : pois) {
-//	    			if (poi.getName().equals(name)) {
-//	    				openLocationInfoActivity(poi);
-//	    			}
-//	    		}
 	    	}
 		});
 	    pois = HeritageMapper.getInstance().getWishList();

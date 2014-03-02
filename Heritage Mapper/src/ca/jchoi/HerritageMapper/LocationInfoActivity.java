@@ -83,7 +83,7 @@ android.support.v4.app.FragmentActivity {
 				poiWish.setChecked(true);
 		}
 
-		// Update all textviews
+		// Update all text views
 		TextView tvName = (TextView) findViewById(R.id.tvName);
 		tvName.setText("Name: " + poi.getName());
 
@@ -147,6 +147,17 @@ android.support.v4.app.FragmentActivity {
 
 	@Override
 	protected void onPause() {
+		super.onPause();
+		try {
+			HeritageMapper.getInstance().saveCSVFile("wishlist.csv", wishPois);
+			HeritageMapper.getInstance().saveCSVFile("visitedlist.csv", visitedPois);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	@Override
+	protected void onStop() {
 		super.onPause();
 		try {
 			HeritageMapper.getInstance().saveCSVFile("wishlist.csv", wishPois);
