@@ -19,10 +19,15 @@
     <string name="title_activity_seach">SeachActivity</string>
     
     <string name="location_info_name">Location Name</string>
+    <string name="location_info_french_name">Location French Name</string>
     <string name="location_info_address">Location Address</string>
     <string name="location_info_city">Location City</string>
     <string name="location_info_province">Location Province</string>
     <string name="location_info_designation">Location Designation</string>
+    <string name="location_info_plaque">Location Plaque</string>
+    <string name="location_info_notes">Write notes</string>
+    
+    <string name="button_write">Write</string>
     
     <string name="location_checkbox_visited">Visited</string>
     <string name="location_checkbox_wishlist">Wishlist</string>

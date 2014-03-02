@@ -35,6 +35,7 @@ android.support.v4.app.FragmentActivity {
 
 	// Create views
 	TextView tvName;
+	TextView tvNameFrench;
 	TextView tvStreet;
 	TextView tvTown;
 	TextView tvProv;
@@ -86,6 +87,9 @@ android.support.v4.app.FragmentActivity {
 		// Update all text views
 		TextView tvName = (TextView) findViewById(R.id.tvName);
 		tvName.setText("Name: " + poi.getName());
+		
+		TextView tvNameFrench = (TextView) findViewById(R.id.tvFrenchName);
+		tvNameFrench.setText("Nom: " + poi.getNameFrench());
 
 		TextView tvStreet = (TextView) findViewById(R.id.tvStreet);
 		tvStreet.setText("");
@@ -213,7 +217,7 @@ android.support.v4.app.FragmentActivity {
 	}
 
 	private void openSearch() {
-		Intent i = new Intent(this, MainActivity.class);
+		Intent i = new Intent(this, SearchActivity.class);
 		startActivity(i);
 	}
 }

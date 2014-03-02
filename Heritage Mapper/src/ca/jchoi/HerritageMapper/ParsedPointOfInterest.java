@@ -91,6 +91,7 @@ public class ParsedPointOfInterest {
 		columns[LONGITUDE] = String.valueOf(getLongitude());
 		return columns;
 	}
+
 	
 	public int getSiteID() {
 		return SiteID;
