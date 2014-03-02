@@ -1,35 +1,66 @@
 package ca.jchoi.HerritageMapper;
 
 
-import ca.jchoi.HerritageMapper.R;
-import ca.jchoi.HerritageMapper.R.id;
-import ca.jchoi.HerritageMapper.R.layout;
-import ca.jchoi.HerritageMapper.R.menu;
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-
-import android.os.Bundle;
+import java.util.ArrayList;
+import java.util.List;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
 
-import android.view.Menu;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import android.content.Intent;
+import android.os.Bundle;
 
 
-public class MainActivity extends Activity {
-
-
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 	 
+	public class MainActivity extends android.support.v4.app.FragmentActivity {
+
+    private GoogleMap myMap;
+    private List<ParsedPointOfInterest> pois;
+ 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) { 
         super.onCreate(savedInstanceState);
+        pois = HeritageMapper.getInstance().getMasterList(); 
+        
+       
+        
+       
         setContentView(R.layout.activity_main);
+        setUpMapIfNeeded();
     }
+    
+    private void setUpMapIfNeeded() {
+        if (myMap == null) {
+            myMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
+                    .getMap();
+            if (myMap != null) {
+                setUpMap();
+            }
+        }
+    }
+    
+    private void setUpMap() {
+    
+       for(ParsedPointOfInterest p: pois) {
+    	   MarkerOptions new_marker = new MarkerOptions();
+    	   new_marker.position(new LatLng(p.getLatitude(), p.getLongitude()));
+    	   new_marker.title(p.getName());
+    	   new_marker.snippet(p.getDesignation());
+    	   
+    	   myMap.addMarker(new_marker);
+    	
+       }
+
+}
+    	
 
 
 

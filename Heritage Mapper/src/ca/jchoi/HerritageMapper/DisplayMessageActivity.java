@@ -12,7 +12,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.support.v4.app.NavUtils;
 
-public class DisplayMessageActivity extends Activity {
+public class DisplayMessageActivity extends android.support.v4.app.FragmentActivity {
 
 	@SuppressLint("NewApi")
 	@Override

@@ -11,7 +11,7 @@ import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class WishlistActivity extends Activity {
+public class WishlistActivity extends android.support.v4.app.FragmentActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
