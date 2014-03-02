@@ -45,7 +45,7 @@ The Heritage Mapper is powered by Park's Department Federal Heritage Destination
 Overview
 ==============
 
-HeritageMapper parses all historical locations in the dataset as Point Of Interest objects. The MainActivity class consists of an interface with Google Maps which places a Marker at all of the locations of the historical POIs in Canadian. Users are able to search for locations, and indicate locations as being on their wishlist or as having been there. Marker colours are adjusted according to these three categories. 
+HeritageMapper parses all historical locations in the dataset as Point Of Interest objects. The MainActivity class consists of an interface with Google Maps which places a Marker at all of the locations of the historical POIs in Canadian. Users are able to search for locations, and indicate locations as being on their wishlist or as having been there. Marker colours are adjusted according to these three categories.
 
 Features
 ==============
