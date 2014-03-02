@@ -30,10 +30,10 @@ The Heritage Mapper Android Application provides an opportunity for Canadians to
 
 Authors
 ==============
-Angela Chen, angelaichen87@gmail.com, UBC
-Woong Gung Choi, woonggun@jchoi.ca, UBC
-Laura Tammpere, laura.tammpere@gmail.com, UBC
-Roxanne Taylor, roxanne.e.taylor@gmail.com, UBC
+1. Angela Chen, angelaichen87@gmail.com, UBC
+2. Woong Gung Choi, woonggun@jchoi.ca, UBC
+3. Laura Tammpere, laura.tammpere@gmail.com, UBC
+4. Roxanne Taylor, roxanne.e.taylor@gmail.com, UBC
   
 
 Data
