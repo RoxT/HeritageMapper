@@ -1,5 +1,6 @@
 package ca.jchoi.HerritageMapper;
 
+import java.io.IOException;
 import java.util.List;
 
 import ca.jchoi.HerritageMapper.R;
@@ -13,33 +14,152 @@ import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 @SuppressLint("NewApi")
 public class LocationInfoActivity extends android.support.v4.app.FragmentActivity {
 	private List<ParsedPointOfInterest> pois;
+	private List<ParsedPointOfInterest> visitedPois;
+	private List<ParsedPointOfInterest> wishPois;
+	
+	// Create views
 	TextView tvName;
+	TextView tvStreet;
+	TextView tvTown;
+	TextView tvProv;
+	TextView tvPlaque;
+	TextView tvDesignation;
+	
+	// This item
+	ParsedPointOfInterest poi;
+	
+	// To know for the check boxes
+	boolean isPoiVisited;
+	boolean isPoiWish;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		// Get info from previous activity
+	    Intent intent = getIntent();
+	    int idNum = intent.getIntExtra(MainActivity.EXTRA_MESSAGE, 1);
+	    
+	    // Get Lists
 		pois = HeritageMapper.getInstance().getMasterList();
-		ParsedPointOfInterest poi = pois.get(3);
+		visitedPois = HeritageMapper.getInstance().getVisitedList();
+		wishPois = HeritageMapper.getInstance().getWishList();
 		
+		// Return the specific poi
+		ParsedPointOfInterest poi = null;
+		for (ParsedPointOfInterest poii : pois) {
+			if (poii.getSiteID() == idNum)
+				poi = poii;
+		}
 		
+		// Set list booleans
+		for (ParsedPointOfInterest vpoi : visitedPois) {
+			if (poi.getSiteID() == vpoi.getSiteID())
+				isPoiVisited = true;
+		}
+		for (ParsedPointOfInterest wpoi : wishPois) {
+			if (poi.getSiteID() == wpoi.getSiteID())
+				isPoiWish = true;
+		}
+		
+		// Set Layout
 		setContentView(R.layout.activity_location_info);
 		
+		// Update all textviews
 		TextView tvName = (TextView) findViewById(R.id.tvName);
-		tvName.setText(poi.getName());
+		tvName.setText("Name: " + poi.getName());
 		
 		TextView tvStreet = (TextView) findViewById(R.id.tvStreet);
-		tvStreet.setText("Street Name");
+		tvStreet.setText("");
+		if (!poi.getStreet().equals(poi.getName()))
+			tvStreet.setText("Street: " + poi.getStreet());
 		
 		TextView tvTown = (TextView) findViewById(R.id.tvTown);
-		tvTown.setText("Town Name");
+		tvTown.setText("Town: " + poi.getTown());
 		
 		TextView tvProv = (TextView) findViewById(R.id.tvProv);
-		tvProv.setText("Prov Name");
+		tvProv.setText("Province: " + poi.getProvince());
+		
+		TextView tvDesignation = (TextView) findViewById(R.id.tvDes);
+		tvDesignation.setText("Reason for Designation: " + poi.getDesignation());
+		
+		setVisitedBox();
+
+		CheckBox chWish = (CheckBox) findViewById(R.id.cbWish);
+		chWish.setChecked(isPoiWish);
+
+		
+
+		
+		
+	}
+	
+	public void clickVisited(View view) {
+		if (!isPoiVisited) {
+			try {
+			HeritageMapper.getInstance().saveCSVFile("visitedlist.csv", visitedPois);
+		
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+			isPoiVisited = true;
+			setVisitedBox();
+			
+			
+		} else {
+			List<ParsedPointOfInterest> newList = visitedPois;
+			newList.remove(poi);
+			try {
+				HeritageMapper.getInstance().saveCSVFile("visitedlist.csv", visitedPois);
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
+			isPoiVisited = false;
+			setVisitedBox();
+		}
+	}
+	
+	public void clickWish(View view) {
+		if (!isPoiWish) {
+			try {
+			HeritageMapper.getInstance().saveCSVFile("wishlist.csv", wishPois);
+		
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+			isPoiWish = true;
+			setWishBox();
+			
+			
+		} else {
+			List<ParsedPointOfInterest> newList = wishPois;
+			newList.remove(poi);
+			try {
+				HeritageMapper.getInstance().saveCSVFile("wishlist.csv", wishPois);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			isPoiWish = false;
+			setWishBox();
+		}
+	}
+	
+	public void setVisitedBox() {
+		CheckBox chVisited = (CheckBox) findViewById(R.id.cbVisted);
+		chVisited.setChecked(isPoiVisited);
+	}
+	
+	public void setWishBox() {
+		CheckBox chWish = (CheckBox) findViewById(R.id.cbWish);
+		chWish.setChecked(isPoiWish);
 	}
 
 	@Override

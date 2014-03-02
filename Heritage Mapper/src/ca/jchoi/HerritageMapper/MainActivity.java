@@ -22,7 +22,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 	 
 	public class MainActivity extends android.support.v4.app.FragmentActivity {
 
-    private GoogleMap myMap;
+    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+	private GoogleMap myMap;
     private List<ParsedPointOfInterest> pois;
  
     @Override
