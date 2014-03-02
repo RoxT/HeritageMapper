@@ -30,6 +30,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MainActivity extends FragmentActivity {
 
 	private final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
+
+
+	public static final String EXTRA_MESSAGE = "ca.jchoi.HerritageMapper";
 	
 
 	private GoogleMap myMap;
