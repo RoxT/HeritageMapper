@@ -1,4 +1,4 @@
-HeritageMapper
+Canadian Heritage Mapper
 ==============
 
                ,
