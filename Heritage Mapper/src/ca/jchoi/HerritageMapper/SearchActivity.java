@@ -2,6 +2,7 @@ package ca.jchoi.HerritageMapper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -58,10 +59,10 @@ public class SearchActivity extends android.support.v4.app.FragmentActivity {
     	EditText editText = (EditText) findViewById(R.id.edit_message);
     	String message = editText.getText().toString();
     	for (ParsedPointOfInterest poi : pois) {
-    		if (poi.getProvince().toLowerCase().contains(message.toLowerCase()) ||
-    				poi.getName().toLowerCase().contains(message.toLowerCase()) ||
-    				poi.getDesignation().toLowerCase().contains(message.toLowerCase()) ||
-    				poi.getStreet().toLowerCase().contains(message.toLowerCase())) {
+    		if (poi.getProvince().toLowerCase(Locale.getDefault()).contains(message.toLowerCase()) ||
+    				poi.getName().toLowerCase(Locale.getDefault()).contains(message.toLowerCase()) ||
+    				poi.getDesignation().toLowerCase(Locale.getDefault()).contains(message.toLowerCase()) ||
+    				poi.getStreet().toLowerCase(Locale.getDefault()).contains(message.toLowerCase())) {
     			myPois.add(poi.getName());
     		}
     	}
